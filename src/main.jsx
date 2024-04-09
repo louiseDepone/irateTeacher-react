@@ -11,7 +11,7 @@ import PublicFeed from "./pages/Main/PublicFeed.jsx";
 import Protection from "./components/Protection/Protection.jsx";
 import OutiseProtection from "./components/Protection/OutiseProtection.jsx";
 import Admin from "./pages/Main/Admin.jsx";
-
+import dotenv from "dotenv";
 import {
   useQuery,
   useMutation,
@@ -25,9 +25,8 @@ import Teacher from "./pages/Main/Teacher.jsx";
 import Postapproval from "./pages/Main/Postapproval.jsx";
 import Students from "./pages/Main/Students.jsx";
 import axios from "axios";
-
-axios.defaults.baseURL = `https://irateteacher.onrender.com/`;
-
+axios.defaults.baseURL = import.meta.env.VITE_SECRET_KEY;
+console.log(import.meta.env.VITE_SECRET_KEY);
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
