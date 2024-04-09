@@ -21,7 +21,7 @@ export function useQueryTeachers() {
                 );
                 const data = await response;
                 setTeacherst(data.data.filter((teacher) => teacher.deleted === 0))
-                console.log("useQueryTeachers", data);
+             
                 return data;
             } catch (error) {
                 console.error(error)

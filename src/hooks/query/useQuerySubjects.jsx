@@ -21,7 +21,6 @@ export function useQuerySubjects() {
                 );
                 const data = await response;
                 setSubjects(data.data)
-                console.log("useQuerySubjects", data);
                 return data;
             } catch (error) {
                 console.error(error)

@@ -20,7 +20,6 @@ export default function PinnedPost() {
     return indexA - indexB;
   }).reverse();
 
-  console.log(ratings)
 // approved: 1;
 // attitude: 0;
 // comment: "hmmmmmmmmmmm";
@@ -69,10 +68,8 @@ export default function PinnedPost() {
                           },
                         }
                       );
-                      console.log("deleting my competense", deleting);
                       refetch();
                     } catch (error) {
-                      console.log(error);
                     }
                   };
                   unpin();

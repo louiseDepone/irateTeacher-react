@@ -46,12 +46,10 @@ export default function Postapproval() {
         setListOfStudents(data);
         return response;
       } catch (error) {
-        console.log(error);
         return error;
       }
     };
 
-    console.log("studentsEnroled");
     if (studentsEnroled)fetchData();
   }, [studentsEnroled]);
   const submit = (e) => {
@@ -62,8 +60,6 @@ export default function Postapproval() {
     if (!teacher_id || !subject_id) {
       return;
     }
-
-    console.log(teacher_id, subject_id);
 
     const dataAdd = async () => {
       try {
@@ -82,7 +78,6 @@ export default function Postapproval() {
         );
         refetch();
       } catch (error) {
-        console.log(error);
       }
     };
 

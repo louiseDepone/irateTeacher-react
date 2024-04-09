@@ -20,7 +20,6 @@ export function useQueryEnrollments() {
                 );
                 const data = await response;
                 setEnrollment(data?.data?.filter((enrollment) => enrollment.deleted === 0))
-                console.log("useQueryEnrollments", data);
                 return data;
             } catch (error) {
                 console.error(error)

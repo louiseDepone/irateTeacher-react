@@ -17,7 +17,6 @@ export function useQueryRaitings() {
         });
         const data = await response;
         setRatings(data.data);
-        console.log("useQueryRaitings", data);
         return data;
       } catch (error) {
         console.error(error);

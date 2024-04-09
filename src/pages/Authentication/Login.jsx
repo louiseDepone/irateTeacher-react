@@ -45,7 +45,6 @@ export default function Login() {
 
       } catch (error) {
         setdisable(false);
-        console.log(error);
         isError(error?.response?.data);
       }
     };

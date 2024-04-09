@@ -30,10 +30,6 @@ export default function Subject() {
  );
 
 
- console.log(
-   userChosenSubject,  
-   "userChosenSubjectuserChosenSubjectuserChosenSubjectuserChosenSubjectuserChosenSubjectuserChosenSubjectuserChosenSubjectuserChosenSubject"
- );
 
   return (
     <div className="w-[100%] space-y-3 ">

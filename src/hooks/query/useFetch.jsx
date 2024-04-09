@@ -40,10 +40,7 @@ export function useQueryCertainStudentOnASubject() {
 
             if (!studentsEnroled) return;
              try {
-               console.log(
-                 "Helllo world!!!",
-                 studentsEnroled?.teacher_subject_id
-               );
+         
               
 
                const response = await axios.get(
@@ -56,13 +53,11 @@ export function useQueryCertainStudentOnASubject() {
                  }
                );
 
-               console.log("Helllo world!!!", response);
                const data = await response.data;
                setListOfStudents(data);
                refetchEnrollment();
                return response.data;
              } catch (error) {
-               console.log(error);
                return error;
              }
            },
@@ -92,7 +87,6 @@ export function  useQueryCertainsubjectonAStudent() {
 
           if (!selectedStudentSubjects) return;
           try{
-            console.log("Helllo world!!!", selectedStudentSubjects?.student_id);
             
             const response = await axios.get(
               `/multipleEnrollementDependingOnTheStudentId/${selectedStudentSubjects?.student_id}`,
@@ -106,12 +100,10 @@ export function  useQueryCertainsubjectonAStudent() {
 
             );
     
-            console.log("Helllo world!!!", response);
               const data = await response.data;
               setlistOfEnrolledSubjects(data);
             return response.data;
           } catch (error) {
-            console.log(error);
             return error;
           }
 

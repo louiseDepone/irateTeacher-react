@@ -21,7 +21,6 @@ export function useQueryStudents() {
               );
               const data = await response;
               setStudents(data.data)
-              console.log("useQueryStudents", data);
               return data;
           } catch (error) {
               console.error(error)

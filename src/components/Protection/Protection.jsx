@@ -22,7 +22,6 @@ export default function Protection({children}) {
     if (isLoading) {
       return <div className='text-white'>Loading the protected gone...</div>;
     }else if (error) {
-      console.log("EEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRRRRRRRR")
     // reset();
     // navigate(0, { replace: true })
     return navigate("../login", { replace: true });

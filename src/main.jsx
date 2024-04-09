@@ -26,7 +26,6 @@ import Postapproval from "./pages/Main/Postapproval.jsx";
 import Students from "./pages/Main/Students.jsx";
 import axios from "axios";
 axios.defaults.baseURL = import.meta.env.VITE_SECRET_KEY;
-console.log(import.meta.env.VITE_SECRET_KEY);
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

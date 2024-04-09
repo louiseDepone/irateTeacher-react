@@ -22,7 +22,6 @@ export function useQueryStudent_ratings() {
                 );
                 const data = await response;
                 setStudent_ratings(data.data)
-                console.log("useQueryStudent_ratings", data);
                 return data;
             } catch (error) {
                 console.error(error)

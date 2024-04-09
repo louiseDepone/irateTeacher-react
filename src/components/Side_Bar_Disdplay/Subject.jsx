@@ -48,17 +48,10 @@ useEffect(() => {
         !originallistOfEnrolledSubjectsid.includes(enrollment.teacher_subject_id)
     )
   );
-  console.log("This where she is enrolled in: ",originallistOfEnrolledSubjectsid);
-  console.log("This are the subjects that is all",originalteacher_subjects);
-  console.log(
-    "this are thesuject that the chosen studet is not enrolled to",
-    selectedStudentSubjects
-  );
 }, [
   selectedStudentSubjects,
   originallistOfEnrolledSubjects,
 ]);
-console.log(teacher_subjects)
   return (
     <>
       <div className="flex  items-start justify-start gap-2 flex-col  text-white text-[0.8rem] w-full pt-4 pl-5 pb-14 h-full">
@@ -132,9 +125,7 @@ console.log(teacher_subjects)
                           className="float-right self-end text-green-500"
                           onClick={() => {
                             const addEnroll = async () => {
-                              console.log(
-                                "dddddddddddddddddddddddddddddddddddddd"
-                              );
+                             
                               // enrollment;
                               try {
                                 const enroll = await axios.post(
@@ -154,11 +145,9 @@ console.log(teacher_subjects)
                                   }
                                 );
 
-                                console.log(enroll);
                                 refetch();
                                 refetchuseQueryCertainsubjectonAStudent();
                               } catch (error) {
-                                console.log("Eoorrrrrrrrrrrr", error);
                               }
                             };
 

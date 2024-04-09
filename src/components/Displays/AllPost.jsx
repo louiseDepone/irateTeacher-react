@@ -49,7 +49,6 @@ function AllPost({
   const userpinpost = useUserStore((state) => state.userpinpost);
   const user = useUserStore((state) => state.user);
   const { refetch: refetchpinpost } = useQueryPinPost();
-  console.log("userpinpostuserpinpostuserpinpostuserpinpost", userpinpost);
   return (
     <div
       className={` flex w-full p-5 rounded-lg border min-w-fit text-[0.7rem] border-borderColor hover:bg-secondaryColor text-white gap-3  h-fit text-xs ${
@@ -105,9 +104,7 @@ function AllPost({
                     );
                     refetch();
                     refetchpinpost();
-                    console.log(res);
                   } catch (error) {
-                    console.log(error);
                   }
                 };
                 changdata();
@@ -363,9 +360,7 @@ function AllPost({
                     }
                   );
                   refetchpinpost();
-                  console.log(res);
                 } catch (error) {
-                  console.log(error);
                 }
               };
               changdata();
@@ -390,9 +385,7 @@ function AllPost({
                     }
                   );
                   refetchpinpost();
-                  console.log(res);
                 } catch (error) {
-                  console.log(error);
                 }
               };
               changdata();

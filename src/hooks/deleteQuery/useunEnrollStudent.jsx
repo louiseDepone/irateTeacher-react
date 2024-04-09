@@ -18,11 +18,9 @@ export function useunEnrollStudent(enrollement_id) {
           },
         }
       );
-      console.log("deleting my competense", realDeletion);
       refetch();
       refetchuseQueryCertainsubjectonAStudent();
     } catch (error) {
-      console.log(error);
     }
   };
 

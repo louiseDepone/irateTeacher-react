@@ -73,7 +73,6 @@ export default function Program() {
       teacher_subject_id: selectedSideBar?.teacher_subject_id,
       student_id: onlist,
     };
-    console.log(data);
     const add = async () => {
       try {
         setIsSubmitting(true);
@@ -90,7 +89,6 @@ export default function Program() {
         refetch()
         setIsSubmitting(false);
       } catch (error) {
-        console.log(error);
         setIsSubmitting(false);
       }
     };
@@ -169,7 +167,6 @@ export default function Program() {
                                 setOnlist([...onlist, student.student_id]);
                               }
 
-                              console.log(onlist);
                             }}
                           >
                             <td>

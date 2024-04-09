@@ -23,7 +23,6 @@ export function useQueryTeacher_subjects() {
                 );
                 const data = await response;
                 setTeacher_subjects(data.data)
-                console.log("useQueryTeacher_subjects", data);
                 return data;
             } catch (error) {
                 console.error(error)

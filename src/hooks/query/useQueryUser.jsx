@@ -17,7 +17,6 @@ export function useQueryUser() {
         });
         const data = await response;
         setUser(data.data);
-        console.log("useQueryUser", data);
         return data;
       } catch (error) {
         console.error(error);
@@ -49,7 +48,6 @@ export function useQuerymultipleSubjectOfACertainUser() {
         );
         const data = await response;
         setUserSubjectEnrolledin(data.data);
-        console.log("setUserSubjectEnrolledin", data);
         return data;
       } catch (error) {
         console.error(error);
@@ -80,7 +78,6 @@ export function useQuerymutliplesTeacherOfACertainUser() {
         );
         const data = await response;
         setUserTeacherEnrolledin(data.data);
-        console.log("setUserTeacherEnrolledin", data);
         return data;
       } catch (error) {
         console.error(error);
@@ -111,7 +108,6 @@ export function useQueryPinPost() {
         const data = await response;
 
         setUserpinpost(data.data);
-        console.log("tangina", userpinpost);
         return data;
       } catch (error) {
         console.error(error);

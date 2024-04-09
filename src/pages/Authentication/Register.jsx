@@ -71,7 +71,6 @@ export default function Register() {
 
         navigate("/main/foryoufeed", { replace: true });
       } catch (error) {
-        console.log(error);
         isError(error?.response?.data);
       }
     };

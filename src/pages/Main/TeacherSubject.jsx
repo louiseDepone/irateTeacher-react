@@ -49,12 +49,10 @@ export default function TeacherSubject() {
         setListOfStudents(data);
         return response;
       } catch (error) {
-        console.log(error);
         return error;
       }
     };
 
-    console.log("studentsEnroled");
     if (studentsEnroled) fetchData();
 
   }, [studentsEnroled]);
@@ -67,7 +65,6 @@ export default function TeacherSubject() {
       return;
     }
 
-    console.log(teacher_id, subject_id);
 
     const dataAdd = async () => {
       try {
@@ -86,7 +83,6 @@ export default function TeacherSubject() {
         );
         refetch();
       } catch (error) {
-        console.log(error);
       }
     };
 
@@ -117,7 +113,6 @@ export default function TeacherSubject() {
                   id="teacher"
                   className="w-full"
                   onChange={(e) => {
-                    console.log(e.target.value);
                     setTeacherChose(e.target.value);
                     setTeacherCurrentTeaching(
                       teacher_subjects
@@ -128,7 +123,6 @@ export default function TeacherSubject() {
                         .map((teacher_subject) => teacher_subject.subject_id)
                     );
 
-                    console.log(teacherCurrentTeaching);
                   }}
                 >
                   <option value="">Select Subject</option>
