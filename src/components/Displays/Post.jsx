@@ -105,6 +105,7 @@ console.log(userTeachers)
 
         refetch();
         refuse.current.reset();
+        divPara.current.innerText = "Enter a comment for a teacher";
         return;
       } catch (error) {
         console.log(error);
@@ -331,9 +332,15 @@ console.log(userTeachers)
                     />
                   </div>
                 </div>
+                <div className="space-x-2">
+
+                <DialogClose className="bg-red-500 rounded-lg px-4 py-1">
+                  Discard 
+                </DialogClose>
                 <button className="bg-[#8287FE] rounded-lg px-4 py-1">
                   Post
                 </button>
+                </div>
               </div>
             </form>
           </DialogContent>

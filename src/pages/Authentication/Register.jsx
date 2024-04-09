@@ -171,7 +171,10 @@ export default function Register() {
           {errors?.message && (
             <sub className="text-red-500 p-2 ">{errors?.message}</sub>
           )}
-          <button className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-white ">
+          <button
+            disabled={message === "Registering"}
+            className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-white "
+          >
             {message}
           </button>
           <sub className="w-full text-center text-white font-normal mt-3">
