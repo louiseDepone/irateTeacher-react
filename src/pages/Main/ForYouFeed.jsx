@@ -9,7 +9,7 @@ export default function ForYouFeed() {
   const [numberToLaod, setNumberToLoad] = React.useState(10);
   const ratings = useDatabaseStore((state) =>
     state.ratings
-      .filter((rating) => rating.student_id === user?.id)
+      .filter((rating) => rating.student_id == user?.id)
       .slice(0, numberToLaod)
   );
   return (

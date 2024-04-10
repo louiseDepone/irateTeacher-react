@@ -229,7 +229,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                         setRatings({
                           ...ratings,
                           teaching_methods:
-                            e === ratings.teaching_methods ? 0 : e,
+                            e == ratings.teaching_methods ? 0 : e,
                         });
                       }}
                     />
@@ -246,7 +246,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                       onChange={(e) => {
                         setRatings({
                           ...ratings,
-                          communication: e === ratings.communication ? 0 : e,
+                          communication: e == ratings.communication ? 0 : e,
                         });
                       }}
                     />
@@ -263,7 +263,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                       onChange={(e) => {
                         setRatings({
                           ...ratings,
-                          supportiveness: e === ratings.supportiveness ? 0 : e,
+                          supportiveness: e == ratings.supportiveness ? 0 : e,
                         });
                       }}
                     />
@@ -280,7 +280,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                       onChange={(e) => {
                         setRatings({
                           ...ratings,
-                          organization: e === ratings.organization ? 0 : e,
+                          organization: e == ratings.organization ? 0 : e,
                         });
                       }}
                     />
@@ -297,7 +297,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                       onChange={(e) => {
                         setRatings({
                           ...ratings,
-                          engagement: e === ratings.engagement ? 0 : e,
+                          engagement: e == ratings.engagement ? 0 : e,
                         });
                       }}
                     />

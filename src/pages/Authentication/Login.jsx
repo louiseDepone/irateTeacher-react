@@ -15,7 +15,7 @@ export default function Login() {
 
   useEffect(() => {
     
-      if (token === null) {
+      if (token == null) {
         localStorage.clear();
         setUser(null);
 

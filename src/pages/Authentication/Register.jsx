@@ -24,7 +24,7 @@ const formSchema = z.object({
       return regex.test(data);
     }, "Invalid student ID format. It should be in the format 'YYNNNNN'"),
   name: z.string().refine((data) => {
-    if (data.includes(" ") || data.length === 0) {
+    if (data.includes(" ") || data.length == 0) {
       return false;
     }
     return true;
@@ -172,7 +172,7 @@ export default function Register() {
             <sub className="text-red-500 p-2 ">{errors?.message}</sub>
           )}
           <button
-            disabled={message === "Registering"}
+            disabled={message == "Registering"}
             className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-white "
           >
             {message}

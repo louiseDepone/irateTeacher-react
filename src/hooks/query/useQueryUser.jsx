@@ -54,6 +54,8 @@ export function useQuerymultipleSubjectOfACertainUser() {
         return error;
       }
     },
+
+    // refetchInterval: 3000,
   });
   return { data, refetch, isLoading, error };
 }
@@ -84,6 +86,8 @@ export function useQuerymutliplesTeacherOfACertainUser() {
         return error;
       }
     },
+
+    // refetchInterval: 3000,
   });
   return { data, refetch, isLoading, error };
 }
@@ -96,15 +100,12 @@ export function useQueryPinPost() {
     queryKey: [502932, "pinpost"],
     queryFn: async () => {
       try {
-        const response = await axios.get(
-          `/pinposts/user/${user.id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: localStorage.getItem("token"),
-            },
-          }
-        );
+        const response = await axios.get(`/pinposts/user/${user.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token"),
+          },
+        });
         const data = await response;
 
         setUserpinpost(data.data);
@@ -114,6 +115,8 @@ export function useQueryPinPost() {
         return error;
       }
     },
+
+    // refetchInterval: 3000,
   });
   return { data, refetch, isLoading, error };
 }

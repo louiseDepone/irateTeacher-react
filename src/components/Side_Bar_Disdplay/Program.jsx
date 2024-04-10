@@ -181,7 +181,7 @@ export default function Program() {
                             <td>{student.name}</td>
                             <td>{student.student_id}</td>
                             <td>
-                              {student.approved === 1 ? "Approved" : "Pending"}
+                              {student.approved == 1 ? "Approved" : "Pending"}
                             </td>
                           </tr>
                         );
@@ -193,10 +193,10 @@ export default function Program() {
                   className="sticky flex-2 bg-green-500 w-full  bottom-0"
                   type="submit"
                   disabled={
-                    isSubmitting || studentsWhoAreNotEnrolled.length === 0
+                    isSubmitting || studentsWhoAreNotEnrolled.length == 0
                   }
                 >
-                  {studentsWhoAreNotEnrolled.length === 0
+                  {studentsWhoAreNotEnrolled.length == 0
                     ? "No student to add"
                     : isSubmitting
                     ? "Adding..."

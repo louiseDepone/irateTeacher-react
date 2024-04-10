@@ -25,7 +25,8 @@ import Teacher from "./pages/Main/Teacher.jsx";
 import Postapproval from "./pages/Main/Postapproval.jsx";
 import Students from "./pages/Main/Students.jsx";
 import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_SECRET_KEY;
+axios.defaults.baseURL = "http://localhost:3300";
+// axios.defaults.baseURL = import.meta.env.VITE_SECRET_KEY;
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

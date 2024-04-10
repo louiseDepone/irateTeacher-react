@@ -70,7 +70,7 @@ useEffect(() => {
                 +
               </button>
             </DialogTrigger>
-            <DialogContent className="w-[70%] h-[80%] bg-primaryColor border-borderColor text-white gap-0 flex flex-col">
+            <DialogContent className="w-[70%] h-[80%] bg-primaryColor border-borderColor text-white gap-0 flex flex-col overflow-auto">
               <div className="text-sm"> <span className="tetx-xs text-mutedColor">Studend Id </span>{selectedStudentSubjects?.student_id}</div>
               <div className=" flex-col w-full lg:h-full lg:flex-row bg-primaryColor border-borderColor text-white  flex  pb-10">
                 <div className="w-full h-full  ">
@@ -106,7 +106,7 @@ useEffect(() => {
                     })}
                   </div>
                 </div>
-                <div className=" min-w-fit lg:w-[35%] flex flex-col items-center space-y-6 max-h-full  overflow-auto px-4 ">
+                <div className=" min-w-fit  lg:w-[35%] flex flex-col items-center space-y-6 max-h-full  overflow-auto px-4 ">
                   {teacher_subjects.map((enrollment, index) => {
                     return (
                       <div className="space-y-5 p-3 hover:bg-secondaryColor border-borderColor rounded-md w-full self-center text-[0.8rem] h-fit flex flex-col border  ">
@@ -148,6 +148,7 @@ useEffect(() => {
                                 refetch();
                                 refetchuseQueryCertainsubjectonAStudent();
                               } catch (error) {
+                                console.log(error)
                               }
                             };
 

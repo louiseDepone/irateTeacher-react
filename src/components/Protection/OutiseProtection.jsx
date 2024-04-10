@@ -28,7 +28,7 @@ export default function OutiseProtection({ children }) {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   
-  if (token === null ||!token )  {
+  if (token == null ||!token )  {
     localStorage.clear();
     setUser(null);
     return children;

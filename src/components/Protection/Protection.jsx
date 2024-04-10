@@ -12,7 +12,7 @@ export default function Protection({children}) {
   const location = useLocation().pathname.split("/")[2];
 
   const token = localStorage.getItem("token");
-    if (token === null || !token) {
+    if (token == null || !token) {
       localStorage.clear();
       setUser(null);
       // reset();
@@ -25,7 +25,7 @@ export default function Protection({children}) {
     // reset();
     // navigate(0, { replace: true })
     return navigate("../login", { replace: true });
-  } else if(data.status === 201){
+  } else if(data.status == 201){
     setUser(data.data)
   switch (location?.toLowerCase()) {
     case "admin":

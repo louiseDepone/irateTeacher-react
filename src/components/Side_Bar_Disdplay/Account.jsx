@@ -37,7 +37,7 @@ export default function Account() {
   );
   const ratings = useDatabaseStore((state) =>
     state.ratings?.filter(
-      (rating) => rating.approved === 1 && rating.deleted === 0
+      (rating) => rating.approved == 1 && rating.deleted == 0
     )
   );
 
@@ -90,7 +90,7 @@ export default function Account() {
                   <p className="text-linkedColor font-semibold pl-3">
                     {
                       ratings?.filter(
-                        (sub) => sub.subject_id === subject.subject_id
+                        (sub) => sub.subject_id == subject.subject_id
                       ).length
                     }
                   </p>
@@ -138,7 +138,7 @@ export default function Account() {
                   <p className="text-linkedColor font-semibold  pl-3">
                     {
                       ratings?.filter(
-                        (teach) => teach.teacher_id === teacher.teacher_id
+                        (teach) => teach.teacher_id == teacher.teacher_id
                       ).length
                     }
                   </p>

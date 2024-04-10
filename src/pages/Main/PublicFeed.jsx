@@ -10,7 +10,7 @@ export default function PublicFeed() {
   const [numberToLaod, setNumberToLoad] = React.useState(10);
   const ratings = useDatabaseStore((state) =>
     state.ratings
-      .filter((rating) => rating.approved === 1 && rating.deleted === 0)
+      .filter((rating) => rating.approved == 1 && rating.deleted == 0)
       .slice(0, numberToLaod)
   );
   

@@ -20,8 +20,8 @@ export default function Subject() {
    state.ratings
      .filter(
        (rating) =>
-         rating.approved === 1 &&
-         rating.deleted === 0 &&(
+         rating.approved == 1 &&
+         rating.deleted == 0 &&(
          (userChosenSubject !== null)
            ? rating.subject_id == userChosenSubject
            : rating.approved)

@@ -63,12 +63,12 @@ export default function Main() {
       </div>
 
       <div className="fixed hidden lg:inline top-20 w-72 right-0 h-[calc(100vh-5rem)]    ">
-        {user.role === "admin" && (
+        {user.role == "admin" && (
           <>
             <div className="text-white text-xs flex  py-3 w-full sticky top-1 bg-primaryColor">
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow === "program" ? "text-linkedColor" : "text-white"
+                  toShow == "program" ? "text-linkedColor" : "text-white"
                 }`}
                 onClick={() => setToShow("program")}
               >
@@ -76,7 +76,7 @@ export default function Main() {
               </button>
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow === "account" ? "text-linkedColor" : "text-white"
+                  toShow == "account" ? "text-linkedColor" : "text-white"
                 }`}
                 onClick={() => setToShow("account")}
               >
@@ -84,7 +84,7 @@ export default function Main() {
               </button>
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow === "subject" ? "text-linkedColor" : "text-white"
+                  toShow == "subject" ? "text-linkedColor" : "text-white"
                 }`}
                 onClick={() => setToShow("subject")}
               >
@@ -94,9 +94,9 @@ export default function Main() {
           </>
         )}
 
-        {toShow === "program" ? (
+        {toShow == "program" ? (
           <Program />
-        ) : toShow === "subject" ? (
+        ) : toShow == "subject" ? (
           <Subject />
         ) : (
           <Account />

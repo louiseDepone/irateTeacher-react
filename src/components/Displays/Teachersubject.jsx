@@ -38,7 +38,7 @@ export default function Teachersubject({ teacher_subject }) {
         </button>
         <button
           className={
-            teacher_subject.deleted === 0
+            teacher_subject.deleted == 0
               ? "p-2 px-3 bg-red-500 text-xs"
               : "p-2 px-3 bg-green-400 text-xs"
           }
@@ -46,7 +46,7 @@ export default function Teachersubject({ teacher_subject }) {
             const ratings = async () => {
               try {
                 const isDeleted = {
-                  isDeleted: teacher_subject.deleted === 0 ? 1 : 0,
+                  isDeleted: teacher_subject.deleted == 0 ? 1 : 0,
                 };
 
                 const deleting = await axios.put(
@@ -69,7 +69,7 @@ export default function Teachersubject({ teacher_subject }) {
             ratings();
           }}
         >
-          {teacher_subject.deleted === 0
+          {teacher_subject.deleted == 0
             ? "Disable to be rated"
             : "Enable to be rated"}
         </button>

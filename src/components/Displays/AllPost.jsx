@@ -80,7 +80,7 @@ function AllPost({
           </span>
           <span
             className={`${
-              location === "foryoufeed" ? "inline-block" : "hidden"
+              location == "foryoufeed" ? "inline-block" : "hidden"
             }`}
           >
             <select
@@ -92,7 +92,7 @@ function AllPost({
                     const res = await axios.put(
                       `/tohiderating/${rating_id}`,
                       {
-                        deleted: e.target.value === "1" ? 1 : 0,
+                        deleted: e.target.value == "1" ? 1 : 0,
                         student_id: user.id,
                       },
                       {
@@ -117,10 +117,10 @@ function AllPost({
           </span>
           <span
             className={`${
-              location === "foryoufeed" ? "inline-block" : "hidden"
+              location == "foryoufeed" ? "inline-block" : "hidden"
             }`}
           >
-            {approval === 0 ? (
+            {approval == 0 ? (
               <span className="text-mutedColor">Pending</span>
             ) : (
               <span className="text-mutedColor">Approved</span>
@@ -162,7 +162,7 @@ function AllPost({
                               authorization: `${localStorage.getItem("token")}`,
                             },
                             data: {
-                              deleted: deleted === 1 ? 0 : 1,
+                              deleted: deleted == 1 ? 0 : 1,
                             },
                           }
                         );
@@ -336,7 +336,7 @@ function AllPost({
       </div>
       <span
         className={`text-nowrap flex-1 text-right ${
-          true === true ? "inline-block" : "hidden"
+          true == true ? "inline-block" : "hidden"
         }`}
       >
         {userpinpost.map((id) => id.rating_id).includes(rating_id) == 0 ? (

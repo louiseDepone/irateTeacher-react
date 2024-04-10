@@ -8,26 +8,25 @@ export function useQueryStudent_ratings() {
       (state) => state.setStudent_ratings
     );
         const { data, refetch, isLoading, error } = useQuery({
-        queryKey: [777777, 'student_ratings'],
-        queryFn: async () => {
+          queryKey: [777777, "student_ratings"],
+          queryFn: async () => {
             try {
-                const response = await axios.get(
-                  "/studentRatings",
-                  {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: localStorage.getItem("token"),
-                    },
-                  }
-                );
-                const data = await response;
-                setStudent_ratings(data.data)
-                return data;
+              const response = await axios.get("/studentRatings", {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: localStorage.getItem("token"),
+                },
+              });
+              const data = await response;
+              setStudent_ratings(data.data);
+              return data;
             } catch (error) {
-                console.error(error)
-                return error;
+              console.error(error);
+              return error;
             }
-        },
+          },
+
+          // refetchInterval: 3000,
         });
 
   return 

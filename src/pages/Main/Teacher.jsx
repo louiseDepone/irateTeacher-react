@@ -18,7 +18,7 @@ export default function Teacher() {
 
  const rating = useDatabaseStore((state) =>
    state.ratings
-     .filter((rating) => rating.approved === 1 && rating.deleted === 0)
+     .filter((rating) => rating.approved == 1 && rating.deleted == 0)
      .slice(0, numberToLaod)
  );
 

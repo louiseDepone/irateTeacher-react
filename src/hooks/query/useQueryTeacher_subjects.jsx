@@ -9,26 +9,25 @@ export function useQueryTeacher_subjects() {
     );
 
         const { data, refetch, isLoading, error } = useQuery({
-        queryKey: [44444, 'teacher_subjects'],
-        queryFn: async () => {
+          queryKey: [44444, "teacher_subjects"],
+          queryFn: async () => {
             try {
-                const response = await axios.get(
-                  "/teacherSubjects",
-                  {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: localStorage.getItem("token"),
-                    },
-                  }
-                );
-                const data = await response;
-                setTeacher_subjects(data.data)
-                return data;
+              const response = await axios.get("/teacherSubjects", {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: localStorage.getItem("token"),
+                },
+              });
+              const data = await response;
+              setTeacher_subjects(data.data);
+              return data;
             } catch (error) {
-                console.error(error)
-                return error;
+              console.error(error);
+              return error;
             }
-        },
+          },
+
+          // refetchInterval: 3000,
         });
 
     return { data, refetch, isLoading, error }

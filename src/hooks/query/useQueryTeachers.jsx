@@ -20,7 +20,7 @@ export function useQueryTeachers() {
                     }
                 );
                 const data = await response;
-                setTeacherst(data.data.filter((teacher) => teacher.deleted === 0))
+                setTeacherst(data.data.filter((teacher) => teacher.deleted == 0))
              
                 return data;
             } catch (error) {

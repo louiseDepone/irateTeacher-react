@@ -37,12 +37,8 @@ export function useQueryCertainStudentOnASubject() {
              532343,
            ],
            queryFn: async () => {
-
-            if (!studentsEnroled) return;
+             if (!studentsEnroled) return;
              try {
-         
-              
-
                const response = await axios.get(
                  `/multipleEnrollementDependingOnTheTeacherSubjectId/${studentsEnroled?.teacher_subject_id}`,
                  {
@@ -58,6 +54,7 @@ export function useQueryCertainStudentOnASubject() {
                refetchEnrollment();
                return response.data;
              } catch (error) {
+              console.log(error,"eeeeeerrrrrrrrrrrorrr")
                return error;
              }
            },
@@ -81,13 +78,11 @@ export function  useQueryCertainsubjectonAStudent() {
     (state) => state.setlistOfEnrolledSubjects
   );
   
-      const { data, error , refetch, isLoading} = useQuery({
-        queryKey: ['multipleEnrollementDependingOnTheStudentId', 34234632],
+      const { data, error, refetch, isLoading } = useQuery({
+        queryKey: ["multipleEnrollementDependingOnTheStudentId", 34234632],
         queryFn: async () => {
-
           if (!selectedStudentSubjects) return;
-          try{
-            
+          try {
             const response = await axios.get(
               `/multipleEnrollementDependingOnTheStudentId/${selectedStudentSubjects?.student_id}`,
               {
@@ -96,19 +91,18 @@ export function  useQueryCertainsubjectonAStudent() {
                   Authorization: localStorage.getItem("token"),
                 },
               }
-
-
             );
-    
-              const data = await response.data;
-              setlistOfEnrolledSubjects(data);
+
+            const data = await response.data;
+            setlistOfEnrolledSubjects(data);
             return response.data;
           } catch (error) {
+            
+              console.log(error, "eeeeeerrrrrrrrrrrorrr");
             return error;
           }
-
-      },
-    });
+        },
+      });
 
     return {
       data,

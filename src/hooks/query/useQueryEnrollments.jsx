@@ -6,26 +6,27 @@ import axios from 'axios';
 export function useQueryEnrollments() {
     const setEnrollment = useDatabaseStore((state) => state.setEnrollment);
         const { data, refetch, isLoading, error } = useQuery({
-        queryKey: [8888888, 'enrollments'],
-        queryFn: async () => {
+          queryKey: [8888888, "enrollments"],
+          queryFn: async () => {
             try {
-                const response = await axios.get(
-                  "/studentteackingcourses",
-                  {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: localStorage.getItem("token"),
-                    },
-                  }
-                );
-                const data = await response;
-                setEnrollment(data?.data?.filter((enrollment) => enrollment.deleted === 0))
-                return data;
+              const response = await axios.get("/studentteackingcourses", {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: localStorage.getItem("token"),
+                },
+              });
+              const data = await response;
+              setEnrollment(
+                data?.data?.filter((enrollment) => enrollment.deleted == 0)
+              );
+              return data;
             } catch (error) {
-                console.error(error)
-                return error;
+              console.error(error);
+              return error;
             }
-        },
+          },
+
+          // refetchInterval: 3000,
         });
 
   return  { data, refetch, isLoading, error }

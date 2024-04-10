@@ -40,7 +40,7 @@ export default function Students() {
               {/* <TableCell>{student.email}</TableCell> */}
               <TableCell>{student.student_id}</TableCell>
               <TableCell className="text-gray-700">
-                {student.approved === 1 ? "Approved" : "Pending"}
+                {student.approved == 1 ? "Approved" : "Pending"}
               </TableCell>
               <TableCell className="space-x-2 flex">
                 <button className="text-white bg-red-500 px-2 py-1 rounded-md">
@@ -48,11 +48,11 @@ export default function Students() {
                 </button>
                 <button
                   className={` px-2 py-1 rounded-md ${
-                    student.approved === 0 ? "bg-green-500" : "bg-red-500"
+                    student.approved == 0 ? "bg-green-500" : "bg-red-500"
                   }
                 }`}
                 >
-                  {student.approved === 0 ? "Approve" : " Disapprove"}
+                  {student.approved == 0 ? "Approve" : " Disapprove"}
                 </button>
               </TableCell>
             </TableRow>
