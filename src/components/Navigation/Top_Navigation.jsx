@@ -11,6 +11,8 @@ import subject from "@/assets/subject.svg";
 import teacher from "@/assets/teacher.svg";
 import student from "@/assets/student.svg";
 import profile from "@/assets/profile.svg";
+import enroll from "@/assets/enroll.svg";
+import admin from "@/assets/admin.svg";
 
 export default function TopNavigation() {
   const url = window.location.href;
@@ -37,7 +39,7 @@ export default function TopNavigation() {
           Ra <span className="text-[#8287FE]">Te</span>
         </Link>
       </div>
-      <div className="   flex gap-7 md:gap-20  w-full justify-between md:w-fit text-sm flex-nowrap">
+      <div className="   flex gap-7 md:gap-20  w-full justify-between md:w-fit text-sm flex-nowrap items-center">
         <Link
           to={"publicfeed"}
           className={` ${
@@ -91,8 +93,9 @@ export default function TopNavigation() {
                 ? "text-[#8287FE]"
                 : "text-white"
             } `}
-          >
-            Admin
+            >
+            <img className="outline-green-500 min-w-6" src={admin} alt="" />
+            
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -104,7 +107,7 @@ export default function TopNavigation() {
                 : "text-white"
             } `}
           >
-            Enroll
+            <img className="outline-green-500 min-w-6" src={enroll} alt="" />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
