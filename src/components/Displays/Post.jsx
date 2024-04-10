@@ -35,9 +35,7 @@ const dtateachers = useDatabaseStore((state) => state.enrollments.filter((enroll
 const trys = new Set(dtateachers.map((teacher) => teacher.teacher_id));
 
 const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.teacher_id) && trys.delete(teacher.teacher_id) && teacher);
-console.log(trys, "trys");
 
-console.log(userTeachers)
 
   const [userSubjects, setUserSubjects] = useState(null);
   const {refetch } = useQueryRaitings()
@@ -54,25 +52,13 @@ console.log(userTeachers)
   const submitPost = (e) => {
     e.preventDefault();
 
-    console.log(e,
-     "value every eelmeent inside the form",
-       e.target[0].value,
-      e.target[1].value,
-       e.target[2].value,
-     ratings.teaching_methods,
-      ratings.communication,
-       ratings.supportiveness,
-     ratings.engagement,
-      ratings.organization,
-      ratings.attitude,
-    )
+  
     const post = async () => {
       // return
       try {
         if (e.target[2].value == "null" || e.target[1].value == "null") {
           throw new Error("Hello there");
         }
-        console.log(divPara.current);
         const response = await axios.post(
           "/ratings",
           {
@@ -108,7 +94,6 @@ console.log(userTeachers)
         divPara.current.innerText = "Enter a comment for a teacher";
         return;
       } catch (error) {
-        console.log(error);
       }
     };
 
@@ -134,13 +119,13 @@ console.log(userTeachers)
       <div className="w-3/4 ">
         <Dialog className="w-full backdrop-blur-sm ">
           <DialogTrigger className="w-full">
-            <div className="w-full h-fit flex items-center mt-4 gap-3">
+            <div className="w-full h-fit flex items-center mt-4 gap-3 text-nowrap">
               <input
                 type="text"
                 placeholder="Enter a comment for a teacher"
                 className=" bg-secondaryColor w-full h-12 rounded-[20px] pl-12 text-[0.6rem] px-4 py-2  focus:outline-none"
               />
-              <button className="text-nowrap text-linkedColor text-xs ">
+              <button className="text-nowrap text-linkedColor text-xs  ">
                 POST
               </button>
             </div>
@@ -333,13 +318,12 @@ console.log(userTeachers)
                   </div>
                 </div>
                 <div className="space-x-2">
-
-                <DialogClose className="bg-red-500 rounded-lg px-4 py-1">
-                  Discard 
-                </DialogClose>
-                <button className="bg-[#8287FE] rounded-lg px-4 py-1">
-                  Post
-                </button>
+                  <DialogClose className="bg-red-500 rounded-lg px-4 py-1">
+                    Discard
+                  </DialogClose>
+                  <button className="bg-[#8287FE] rounded-lg px-4 py-1">
+                    Post
+                  </button>
                 </div>
               </div>
             </form>
