@@ -132,7 +132,7 @@ export default function TopNavigation() {
           onClick={() => {
             localStorage.removeItem("token");
           }}
-          href="https://irateteacher.onrender.com/"
+          href="https://irateteacher.onrender.com/login"
         >
           <LogOut color="white" />
         </a>
