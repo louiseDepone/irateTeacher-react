@@ -40,7 +40,7 @@ export default function PinnedPost() {
 // teacher_id: 1;
 // teaching_method: 0;
   return (
-    <div className=" fixed top-16  w-80 hidden xl:flex justify-start items-center  flex-col h-[calc(100vh-48px)] py-4  text-white px-9">
+    <div className=" fixed top-20  w-80 hidden xl:flex justify-start items-center  flex-col h-[calc(100vh-48px)] py-4  text-white px-9">
       <p className="text-mutedColor text-[0.9rem] font-bold text-left w-full py-3">
         {userpinpost.length} Pinned Post
       </p>

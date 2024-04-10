@@ -5,6 +5,12 @@ import useUserStore from "@/hooks/store/useUserStore";
 import { LogOut } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import home from "@/assets/home.svg";
+import approve from "@/assets/approve.svg";
+import subject from "@/assets/subject.svg";
+import teacher from "@/assets/teacher.svg";
+import student from "@/assets/student.svg";
+import profile from "@/assets/profile.svg";
 
 export default function TopNavigation() {
   const url = window.location.href;
@@ -25,20 +31,20 @@ export default function TopNavigation() {
     setUrlState(navigation.pathname.split("/")[2]);
   }, [navigation]);
   return (
-    <div className=" px-5 sticky top-0 bg-primaryColor  z-100   h-16 border-b border-borderColor flex justify-center items-center w-full lg:flex-nowrap ">
-      <div className=" justify-items-start pl-2  hidden lg:inline-block w-96  ">
+    <div className=" px-5 sticky md:top-0 top-[calc(100vh-4rem)]  bg-primaryColor/70   z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1rem] border-borderColor flex justify-between items-center w-full lg:flex-nowrap ">
+      <div className=" justify-items-start pl-2  hidden lg:inline-block w-96 flex-1  ">
         <Link className="font-bold text-2xl text-white flex ">
           Ra <span className="text-[#8287FE]">Te</span>
         </Link>
       </div>
-      <div className="w-full  bg-primaryColor flex gap-7 lg:justify-start justify-center  text-sm lg:flex-nowrap flex-wrap">
+      <div className="   flex gap-7 md:gap-20  w-full justify-between md:w-fit text-sm flex-nowrap">
         <Link
           to={"publicfeed"}
           className={` ${
             urlState === "publicfeed" ? "text-[#8287FE]" : "text-white"
           } `}
         >
-          Public
+          <img className="outline-green-500 min-w-6" src={home} alt="" />
         </Link>
         <Link
           to={"foryoufeed"}
@@ -48,7 +54,7 @@ export default function TopNavigation() {
               : "text-white"
           } `}
         >
-          Your Post
+          <img className="outline-green-500 min-w-6" src={profile} alt="" />
         </Link>
         <Link
           to={"teacher"}
@@ -61,7 +67,7 @@ export default function TopNavigation() {
               : "text-white"
           } `}
         >
-          Teacher
+          <img className="outline-green-500 min-w-6" src={teacher} alt="" />
         </Link>
         <Link
           to={"subject"}
@@ -74,10 +80,10 @@ export default function TopNavigation() {
               : "text-white"
           } `}
         >
-          Subject
+          <img className="outline-green-500 min-w-6" src={subject} alt="" />
         </Link>
 
-        {user.role.toLowerCase() === "admin" && (
+        {/* {user.role.toLowerCase() === "admin" && (
           <Link
             to={"admin"}
             className={` ${
@@ -100,7 +106,7 @@ export default function TopNavigation() {
           >
             Enroll
           </Link>
-        )}
+        )} */}
         {user.role.toLowerCase() === "admin" && (
           <Link
             to={"postapproval"}
@@ -110,7 +116,7 @@ export default function TopNavigation() {
                 : "text-white"
             } `}
           >
-            Post Approval
+            <img className="outline-green-500 min-w-6" src={approve} alt="" />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -122,11 +128,16 @@ export default function TopNavigation() {
                 : "text-white"
             } `}
           >
-            Students
+            <img
+              className="outline-green-500 min-w-6"
+              src={student}
+              color="red"
+              fill="red"
+            />
           </Link>
         )}
       </div>
-      <div className="justify-items-end items-center flex ">
+      <div className="justify-items-end hidden items-center md:flex flex-1 justify-end ">
         <a
           className="text-white pr-3 hover:text-[#8287FE] justify-items-end"
           onClick={() => {
