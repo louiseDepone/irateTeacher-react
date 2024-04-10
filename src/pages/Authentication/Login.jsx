@@ -53,7 +53,7 @@ export default function Login() {
   return (
     <div className="flex justify-center flex-col bg-white items-center h-screen ">
       <div className="font-black  text-7xl  flex ">
-        Ra <span className="text-[#8287FE] ">Te</span>
+        Ra<span className="text-[#8287FE] ">Te</span>
       </div>
       <form onSubmit={submit} className="flex flex-col w-80 gap-1">
         <div className="flex flex-col w-full gap-1 pb-1">
