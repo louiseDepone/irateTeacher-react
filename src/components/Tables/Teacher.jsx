@@ -53,7 +53,7 @@ export default function AllTeacher() {
       try {
         setIsSubmitting(true);
         const res = await axios.post(
-          "http://localhost:3300/teachers",
+          "/teachers",
           information,
           {
             headers: {

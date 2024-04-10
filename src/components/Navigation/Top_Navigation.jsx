@@ -83,7 +83,7 @@ export default function TopNavigation() {
           <img className="outline-green-500 min-w-6" src={subject} alt="" />
         </Link>
 
-        {/* {user.role.toLowerCase() === "admin" && (
+        {user.role.toLowerCase() === "admin" && (
           <Link
             to={"admin"}
             className={` ${
@@ -106,7 +106,7 @@ export default function TopNavigation() {
           >
             Enroll
           </Link>
-        )} */}
+        )}
         {user.role.toLowerCase() === "admin" && (
           <Link
             to={"postapproval"}

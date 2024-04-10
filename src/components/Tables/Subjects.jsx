@@ -34,7 +34,7 @@ export default function Subjects() {
     const addSubject = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:3300/subjects",
+          "/subjects",
           information,
           {
             headers: {
