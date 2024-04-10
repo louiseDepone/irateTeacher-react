@@ -123,11 +123,11 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
               <input
                 type="text"
                 placeholder="Enter a comment for a teacher"
-                className=" bg-secondaryColor w-full h-12 rounded-[20px] pl-12 text-[0.6rem] px-4 py-2  focus:outline-none"
+                className=" bg-secondaryColor w-full h-12 rounded-[20px] pl-7 text-[0.6rem] px-4 py-2  focus:outline-none"
               />
-              <button className="text-nowrap text-linkedColor text-xs  ">
+              <div className="text-nowrap text-linkedColor text-xs  ">
                 POST
-              </button>
+              </div>
             </div>
           </DialogTrigger>
           <DialogContent className=" h-full w-full md:w-1/3 md:max-h-[80%] md:h-fit overflow-auto bg-primaryColor  p-8 border-borderColor ">
