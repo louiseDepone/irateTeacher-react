@@ -103,6 +103,9 @@ export default function Postapproval() {
     <div>
       <div className="flex flex-col  text-white w-full p-5">
         <p className="text-xl">Posts</p>
+        {
+          ratings.length === 0 && <p className="text-center text-lg text-mutedColor">No post available</p>
+        }
         {/* <div className="flex flex-wrap pt-3 gap-2">
           <button
             className={`p-1 px-2 text-xs hover:bg-linkedColor border border-borderColor rounded-full ${

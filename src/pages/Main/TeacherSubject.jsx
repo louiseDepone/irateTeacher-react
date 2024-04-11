@@ -122,7 +122,6 @@ export default function TeacherSubject() {
                         )
                         .map((teacher_subject) => teacher_subject.subject_id)
                     );
-
                   }}
                 >
                   <option value="">Select Subject</option>
@@ -159,6 +158,16 @@ export default function TeacherSubject() {
         </Dialog>
       </div>
       <div className="p-5 flex flex-wrap gap-5">
+        {teacher_subjects.length == 0 && (
+          <p
+            className="
+        w-full text-mutedColor text-xs text-center
+        "
+          >
+            {" "}
+            no created subject with teacher
+          </p>
+        )}
         {teacher_subjects.map((teacher_subject, index) => {
           return (
             <Teachersubject key={index} teacher_subject={teacher_subject} />

@@ -45,8 +45,7 @@ export default function AllTeacher() {
   const submit = (e) => {
     e.preventDefault();
     const information = {
-      name: e.target[0].value,
-      email: e.target[1].value,
+      name: e.target[0].value.trim(),
     };
 
     const addTeacher = async () => {
@@ -67,6 +66,9 @@ export default function AllTeacher() {
         setIsSubmitting(false);
       } catch (error) {
         console.log(error);
+        if (error.response.status === 400) {
+          alert(error.response.data.message);
+        }
         setIsSubmitting(false);
       }
     };
@@ -96,10 +98,6 @@ export default function AllTeacher() {
                     <div>
                       <label htmlFor="name">Name</label>
                       <input type="text" />
-                    </div>
-                    <div>
-                      <label htmlFor="name">Email</label>
-                      <input type="email" />
                     </div>
                     <button type="submit" disabled={isSubmitting}>
                       {isSubmitting ? "Adding..." : "Add"}

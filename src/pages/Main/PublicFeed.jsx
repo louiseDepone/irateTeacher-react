@@ -6,14 +6,19 @@ import useUserStore from "@/hooks/store/useUserStore";
 import React from "react";
 
 export default function PublicFeed() {
-  
-  const [numberToLaod, setNumberToLoad] = React.useState(10);
+  const [numberToLoad, setNumberToLoad] = React.useState(10);
+  const lengthoforiginalrating = useDatabaseStore(
+    (state) =>
+      state.ratings.filter(
+        (rating) => rating.approved === 1 && rating.deleted === 0
+      ).length
+  );
   const ratings = useDatabaseStore((state) =>
     state.ratings
-      .filter((rating) => rating.approved == 1 && rating.deleted == 0)
-      .slice(0, numberToLaod)
+      .filter((rating) => rating.approved === 1 && rating.deleted === 0)
+      .slice(0, numberToLoad)
   );
-  
+
   return (
     <div className="w-[100%] space-y-3 ">
       {/* <App /> */}
@@ -41,12 +46,26 @@ export default function PublicFeed() {
         );
       })}
 
+      <div>
+        {numberToLoad >= lengthoforiginalrating && (
+          <p
+            className="
+        w-full text-mutedColor text-xs text-center
+        "
+          >
+            {" "}
+            You've reached the end of the post!
+          </p>
+        )}
+      </div>
       <div className="w-full flex justify-center items-center h-10">
         <button
           className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
-          onClick={() => setNumberToLoad(numberToLaod + 10)}
+          onClick={() => setNumberToLoad(numberToLoad + 10)}
         >
-          Load More
+          {numberToLoad <= lengthoforiginalrating
+            ? "Load More"
+            : "No More Data"}
         </button>
       </div>
     </div>

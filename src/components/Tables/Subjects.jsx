@@ -28,7 +28,7 @@ export default function Subjects() {
   const submit = (e) => {
     e.preventDefault();
     const information = {
-      subject: e.target[0].value,
+      subject: e.target[0].value.trim,
     };
 
     const addSubject = async () => {
@@ -45,7 +45,10 @@ export default function Subjects() {
         );
         refetch()
       } catch (error) {
-        console.log(error);
+        
+        if (error.response.status === 400) {
+          alert(error.response.data.message);
+        }
       }
     };
     refetch

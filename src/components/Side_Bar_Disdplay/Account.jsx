@@ -68,6 +68,7 @@ export default function Account() {
           </label>
         </div>
         <div className="space-y-3 p-3 ">
+          {subjects.length == 0 && ( <p className="text-mutedColor text-[0.8rem]">No subjects on the list</p>)}
           {subjects
             ?.filter((sub) =>
               sub.subject.toLowerCase().includes(searchSubject.toLowerCase())
@@ -117,6 +118,9 @@ export default function Account() {
           </label>
         </div>
         <div className="space-y-3 p-3 ">
+          {teachers.length == 0 && (
+            <p className="text-mutedColor text-[0.8rem]">No teachers on the list</p>
+          )}
           {teachers
             ?.filter((sub) =>
               sub.teacher_name

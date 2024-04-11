@@ -71,7 +71,10 @@ export default function Register() {
 
         navigate("/main/foryoufeed", { replace: true });
       } catch (error) {
+        
+        setMessage("Retry register");
         isError(error?.response?.data);
+
       }
     };
 
