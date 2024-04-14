@@ -71,7 +71,7 @@ function AllPost({
         )}
       </div>
       <div className="w-full ">
-        <div className="flex gap-5 items-center justify w-full">
+        <div className="flex md:gap-5 gap-4 items-center justify w-full flex-wrap">
           <p>{studentName}</p>
           <p className="text-transparent bg-muted  w-1 h-1 rounded-full"> .</p>
           <span className="text-center text-mutedColor text-xs">
