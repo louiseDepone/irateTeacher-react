@@ -12,7 +12,7 @@ export function useQueryMatriculation() {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3200/matriculation/${user.id}`,
+          `/matriculation/${user.id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export function useQueryChosenMatriculations() {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3200/matriculation`,
+          `/matriculation`,
           {
             headers: {
               "Content-Type": "application/json",

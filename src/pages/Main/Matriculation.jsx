@@ -27,7 +27,7 @@ export default function Matriculation() {
     const postMatriculation = async () => {
       try {
         await axios.post(
-          `http://localhost:3200/ddddddddddddAddingmatriculation/${user.id}`,
+          `/ddddddddddddAddingmatriculation/${user.id}`,
           formData,
           {
             headers: {
