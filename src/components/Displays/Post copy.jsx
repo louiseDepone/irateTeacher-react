@@ -39,7 +39,7 @@ export default function Post() {
               teacher_subject_id: userSubject?.filter(
                 (subject) =>
                   subject.teacher == userSubjects &&
-                  subject.subject === e.target[2].value
+                  subject.subject == e.target[2].value
               )[0].teacher_subject_id,
               comment: e.target[0].value,
               teaching_method: ratings.teaching_methods,
@@ -164,7 +164,7 @@ export default function Post() {
                 onChange={(e) => {
                   setRatings({
                     ...ratings,
-                    teaching_methods: e === ratings.teaching_methods ? 0 : e,
+                    teaching_methods: e == ratings.teaching_methods ? 0 : e,
                   });
                 }}
               />
@@ -179,7 +179,7 @@ export default function Post() {
                 onChange={(e) => {
                   setRatings({
                     ...ratings,
-                    communication: e === ratings.communication ? 0 : e,
+                    communication: e == ratings.communication ? 0 : e,
                   });
                 }}
               />
@@ -194,7 +194,7 @@ export default function Post() {
                 onChange={(e) => {
                   setRatings({
                     ...ratings,
-                    supportiveness: e === ratings.supportiveness ? 0 : e,
+                    supportiveness: e == ratings.supportiveness ? 0 : e,
                   });
                 }}
               />
@@ -209,7 +209,7 @@ export default function Post() {
                 onChange={(e) => {
                   setRatings({
                     ...ratings,
-                    organization: e === ratings.organization ? 0 : e,
+                    organization: e == ratings.organization ? 0 : e,
                   });
                 }}
               />
@@ -224,7 +224,7 @@ export default function Post() {
                 onChange={(e) => {
                   setRatings({
                     ...ratings,
-                    engagement: e === ratings.engagement ? 0 : e,
+                    engagement: e == ratings.engagement ? 0 : e,
                   });
                 }}
               />

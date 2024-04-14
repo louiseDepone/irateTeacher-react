@@ -12,11 +12,15 @@ import { useQueryStudents } from "@/hooks/query/useQueryStudents";
 import { useQuerySubjects } from "@/hooks/query/useQuerySubjects";
 import { useQueryTeacher_subjects } from "@/hooks/query/useQueryTeacher_subjects";
 import { useQueryTeachers } from "@/hooks/query/useQueryTeachers";
-import { useQueryPinPost, useQuerymultipleSubjectOfACertainUser, useQuerymutliplesTeacherOfACertainUser } from "@/hooks/query/useQueryUser";
+import {
+  useQueryPinPost,
+  useQuerymultipleSubjectOfACertainUser,
+  useQuerymutliplesTeacherOfACertainUser,
+} from "@/hooks/query/useQueryUser";
 import useUserStore from "@/hooks/store/useUserStore";
 import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import {LogOut} from "lucide-react"
+import { LogOut } from "lucide-react";
 
 export default function Main() {
   const queryRaitings = useQueryRaitings();
@@ -56,7 +60,6 @@ export default function Main() {
       <div className=""></div>
 
       <div className="xl:ml-80 lg:mr-80 py-3 -mt-20 md:mt-0 px-8 xl:px-0 ">
-        
         <Post />
         <Outlet />
         {/* d */}

@@ -18,6 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useLocation } from "react-router-dom";
 
 export default function Post() {
     const user = useUserStore((state) => state.user);
@@ -99,12 +100,17 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
 
     post();
   };
+  const location = useLocation().pathname.split("/")[2];
   return (
     // <div className="flex w-full p-3 border-b border-grayish ">
 
     // </div>
 
-    <div className="flex justify-center flex-col items-center py-6">
+    <div
+      className={` ${
+        ["foryoufeed", "publicfeed"].includes(location) ? " flex " : " hidden "
+      } justify-center flex-col items-center py-6`}
+    >
       <div className="bg-white rounded-full w-12 h-12 object-cover flex items-center justify-center">
         <span className="text-[#1B2730] font-bold">
           {user.name.charAt(0).toUpperCase() +
@@ -125,9 +131,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                 placeholder="Enter a comment for a teacher"
                 className=" bg-secondaryColor w-full h-12 rounded-[20px] pl-7 text-[0.6rem] px-4 py-2  focus:outline-none"
               />
-              <div className="text-nowrap text-linkedColor text-xs  ">
-                POST
-              </div>
+              <div className="text-nowrap text-linkedColor text-xs  ">POST</div>
             </div>
           </DialogTrigger>
           <DialogContent className=" h-full w-full md:w-1/3 md:max-h-[80%] md:h-fit overflow-auto bg-primaryColor  p-8 border-borderColor ">
@@ -214,6 +218,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
 
               {/* ------------------------- */}
               <div className="flex flex-col items-end w-full   space-y-3">
+                <div className="bg-red-500 w-full"></div>
                 <div className="flex text-xs justify-between  w-full text-white font-normal flex-wrap gap-3">
                   <div className="flex flex-col justify-center items-center ">
                     <p>Teaching Method</p>
@@ -317,11 +322,12 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                     />
                   </div>
                 </div>
-                <div className="space-x-2">
-                  <DialogClose className="bg-red-500 rounded-lg px-4 py-1">
+                <div className="space-x-2 w-full ">
+                  <button className="text-xs text-linkedColor ">About ratings</button>
+                  <DialogClose className="bg-red-500 rounded-lg px-4 py-1 float-right">
                     Discard
                   </DialogClose>
-                  <button className="bg-[#8287FE] rounded-lg px-4 py-1">
+                  <button className="bg-[#8287FE] rounded-lg px-4 py-1 float-right">
                     Post
                   </button>
                 </div>

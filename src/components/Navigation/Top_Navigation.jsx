@@ -43,20 +43,20 @@ export default function TopNavigation() {
         <Link
           to={"publicfeed"}
           className={` ${
-            urlState === "publicfeed" ? "text-[#8287FE]" : "text-white"
-          } `}
+            urlState === "publicfeed" ? "text-[#8287FE] " : "text-white opacity-50"
+          } ` }
         >
-          <img className="outline-green-500 min-w-6" src={home} alt="" />
+          <img className="outline-green-500 min-w-5 w-5" src={home} alt="" />
         </Link>
         <Link
           to={"foryoufeed"}
           className={` ${
             navigation.pathname.split("/")[2] === "foryoufeed"
               ? "text-[#8287FE]"
-              : "text-white"
+              : "text-white opacity-50 "
           } `}
         >
-          <img className="outline-green-500 min-w-6" src={profile} alt="" />
+          <img className="outline-green-500 min-w-5 w-5" src={profile} alt="" />
         </Link>
         <Link
           to={"teacher"}
@@ -66,10 +66,10 @@ export default function TopNavigation() {
           className={` ${
             navigation.pathname.split("/")[2] === "teacher"
               ? "text-[#8287FE]"
-              : "text-white"
+              : "text-white opacity-50 "
           } `}
         >
-          <img className="outline-green-500 min-w-6" src={teacher} alt="" />
+          <img className="outline-green-500 min-w-6 w-5" src={teacher} alt="" />
         </Link>
         <Link
           to={"subject"}
@@ -79,10 +79,10 @@ export default function TopNavigation() {
           className={` ${
             navigation.pathname.split("/")[2] === "subject"
               ? "text-[#8287FE]"
-              : "text-white"
+              : "text-white opacity-50 "
           } `}
         >
-          <img className="outline-green-500 min-w-6" src={subject} alt="" />
+          <img className="outline-green-500 min-w-5 w-5" src={subject} alt="" />
         </Link>
 
         {user.role.toLowerCase() === "admin" && (
@@ -91,10 +91,10 @@ export default function TopNavigation() {
             className={` ${
               navigation.pathname.split("/")[2] === "admin"
                 ? "text-[#8287FE]"
-                : "text-white"
+                : "text-white opacity-50 "
             } `}
             >
-            <img className="outline-green-500 min-w-6" src={admin} alt="" />
+            <img className="outline-green-500 min-w-5 w-5" src={admin} alt="" />
             
           </Link>
         )}
@@ -104,10 +104,10 @@ export default function TopNavigation() {
             className={` ${
               navigation.pathname.split("/")[2] === "teachersubject"
                 ? "text-[#8287FE]"
-                : "text-white"
+                : "text-white opacity-50 "
             } `}
           >
-            <img className="outline-green-500 min-w-6" src={enroll} alt="" />
+            <img className="outline-green-500 min-w-5 w-5" src={enroll} alt="" />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -116,10 +116,10 @@ export default function TopNavigation() {
             className={` ${
               navigation.pathname.split("/")[2] === "postapproval"
                 ? "text-[#8287FE]"
-                : "text-white"
+                : "text-white opacity-50 "
             } `}
           >
-            <img className="outline-green-500 min-w-6" src={approve} alt="" />
+            <img className="outline-green-500 min-w-5 w-5" src={approve} alt="" />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -128,7 +128,7 @@ export default function TopNavigation() {
             className={` ${
               navigation.pathname.split("/")[2] === "student"
                 ? "text-[#8287FE]"
-                : "text-white"
+                : "text-white opacity-50 "
             } `}
           >
             <img

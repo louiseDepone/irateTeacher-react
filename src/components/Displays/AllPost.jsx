@@ -49,6 +49,7 @@ function AllPost({
   const userpinpost = useUserStore((state) => state.userpinpost);
   const user = useUserStore((state) => state.user);
   const { refetch: refetchpinpost } = useQueryPinPost();
+ 
   return (
     <div
       className={` flex w-full p-5 rounded-lg border min-w-fit text-[0.7rem] border-borderColor hover:bg-secondaryColor text-white gap-3  h-fit text-xs ${
@@ -61,8 +62,8 @@ function AllPost({
         {studentName !== null ? (
           <div className="bg-white rounded-full w-8 h-8 object-cover flex items-center justify-center">
             <span className="text-[#1B2730] font-bold">
-              {studentName.charAt(0).toUpperCase() +
-                studentName.charAt(studentName.length - 1).toUpperCase()}
+              {studentName?.charAt(0).toUpperCase() +
+                studentName?.charAt(studentName.length - 1).toUpperCase()}
             </span>
           </div>
         ) : (
@@ -228,7 +229,7 @@ function AllPost({
             <div className="flex text-xs justify-center items-center w-full  text-white font-normal flex-wrap gap-3 text-[0.7rem]">
               <div className="flex flex-col  justify-center items-center  gap-2">
                 <p>Teaching Method</p>
-                <Rating
+                <Rating 
                   emptySymbol={<img width={20} src={starempty} alt="empty" />}
                   placeholderSymbol={
                     <img width={20} src={starcolored} alt="colored" />

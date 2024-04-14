@@ -31,7 +31,7 @@ export default function RatingsPosts({ post }) {
       }}
     >
       <div className="flex-1 ">
-        <p className="text-lg">{post.studentName}</p>
+        <p className="text-lg">{post.studentname}</p>
         <div className="flex gap-2 pt-3 ">
           <p className="text-xs  flex flex-col  gap-1">
             <span className="text-mutedColor">Subject</span>
@@ -39,10 +39,10 @@ export default function RatingsPosts({ post }) {
           </p>
           <p className="text-xs   gap-1 flex flex-col  ">
             <span>
-              {post.subjectName}
+              {post.subjectname}
               </span> 
             <span>
-             {post.teacherName}{" "}
+             {post.teachername}{" "}
               </span> 
           </p>
         </div>

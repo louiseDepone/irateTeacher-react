@@ -76,7 +76,7 @@ export default function PinnedPost() {
                 }}
               />
               <div className="flex justify-between">
-                <p className="t">{rating.studentName}</p>
+                <p className="t">{rating.studentname}</p>
                 <p className="text-mutedColor">{rating.date.split("T")[0]}</p>
               </div>
               <div className="flex gap-2">
@@ -85,8 +85,8 @@ export default function PinnedPost() {
                   <p className="text-nowrap">Subject</p>
                 </div>
                 <div className="space-y-2">
-                  <p>{rating.teacherName}</p>
-                  <p>{rating.subjectName}</p>
+                  <p>{rating.teachername}</p>
+                  <p>{rating.subjectname}</p>
                 </div>
               </div>
               <div>

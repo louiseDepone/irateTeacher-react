@@ -91,7 +91,7 @@ export default function TeacherSubject() {
     e.target[1].value = "";
   };
   return (
-    <div>
+    <div className=" pb-20 md:pb-0">
       <div className="flex justify-between text-white items-center w-full p-5">
         <p className="text-xl">Subjects and Instructors</p>
 

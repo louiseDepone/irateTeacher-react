@@ -18,9 +18,11 @@ export default function ForYouFeed() {
       .filter((rating) => rating.student_id == user?.id)
       .slice(0, numberToLaod)
   );
+  console.log(ratings)
   return (
-    <div className="w-[100%]">
-      <div className="space-y-3 pt-3">
+    <div className="w-[100%] pb-20 md:pb-0">
+      
+      <div className="space-y-3 pt-3 ">
         {ratings.map((rating, index) => {
           return (
             <AllPost
@@ -36,27 +38,26 @@ export default function ForYouFeed() {
               likes={rating.likes}
               organization={rating.organization}
               rating_id={rating.rating_id}
-              studentName={rating.studentName}
-              subjectName={rating.subjectName}
+              studentName={rating.studentname}
+              subjectName={rating.subjectname}
               supportiveness={rating.supportiveness}
-              teacherName={rating.teacherName}
+              teacherName={rating.teachername}
               teaching_method={rating.teaching_method}
             />
           );
         })}
       </div>
       <div>
-        {numberToLaod >= lengthoforiginalraiting && 
-        <p
-          className="
+        {numberToLaod >= lengthoforiginalraiting && (
+          <p
+            className="
         w-full text-mutedColor text-xs text-center
         "
-        >
-          {" "}
-          You've reach the end of the post!
-        </p>
-        
-        }
+          >
+            {" "}
+            You've reach the end of the post!
+          </p>
+        )}
       </div>
       <div className="w-full flex justify-center items-center h-10">
         <button

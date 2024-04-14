@@ -10,24 +10,24 @@ export default function PublicFeed() {
   const lengthoforiginalrating = useDatabaseStore(
     (state) =>
       state.ratings.filter(
-        (rating) => rating.approved === 1 && rating.deleted === 0
+        (rating) => rating.approved == 1 && rating.deleted == 0
       ).length
   );
   const ratings = useDatabaseStore((state) =>
     state.ratings
-      .filter((rating) => rating.approved === 1 && rating.deleted === 0)
+      .filter((rating) => rating.approved == 1 && rating.deleted == 0)
       .slice(0, numberToLoad)
   );
 
   return (
-    <div className="w-[100%] space-y-3 ">
+    <div className="w-[100%] space-y-3 pb-20 md:pb-0">
       {/* <App /> */}
       {ratings.map((rating, index) => {
         return (
           <AllPost
             key={index}
             deleted={rating.deleted}
-            approval={rating.approval}
+            approval={rating.approved}
             attitude={rating.attitude}
             comment={rating.comment}
             communication={rating.communication}
@@ -37,10 +37,10 @@ export default function PublicFeed() {
             likes={rating.likes}
             organization={rating.organization}
             rating_id={rating.rating_id}
-            studentName={rating.studentName}
-            subjectName={rating.subjectName}
+            studentName={rating.studentname}
+            subjectName={rating.subjectname}
             supportiveness={rating.supportiveness}
-            teacherName={rating.teacherName}
+            teacherName={rating.teachername}
             teaching_method={rating.teaching_method}
           />
         );
@@ -58,7 +58,7 @@ export default function PublicFeed() {
           </p>
         )}
       </div>
-      <div className="w-full flex justify-center items-center h-10">
+      <div className="w-full flex justify-center items-center h-10 ">
         <button
           className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={() => setNumberToLoad(numberToLoad + 10)}
