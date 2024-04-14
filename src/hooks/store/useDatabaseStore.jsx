@@ -8,6 +8,8 @@ const initialState = {
   subjects: [],
   teacher_subjects: [],
   teachers: [],
+  matriculation: [],
+  all_matriculations:[],
 
   admin_enrollments: [],
   admin_ratings: [],
@@ -35,6 +37,8 @@ const useDatabaseStore = create((set) => ({
   setSubjects: (subjects) => set({ subjects }),
   setTeacher_subjects: (teacher_subjects) => set({ teacher_subjects }),
   setTeacherst: (teachers) => set({ teachers }),
+  setMatriculation: (matriculation) => set({ matriculation }),
+  setAllMatriculations: (all_matriculations) => set({ all_matriculations }),
   reset: () => set(initialState),
 }));
 

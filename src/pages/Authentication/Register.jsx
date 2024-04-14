@@ -174,6 +174,29 @@ export default function Register() {
           {errors?.message && (
             <sub className="text-red-500 p-2 ">{errors?.message}</sub>
           )}
+
+          <div>
+            {/* Accept Terms and Conditions */}
+            <input
+              type="checkbox"
+              className="text-[#8287FE] "
+              id="terms"
+              name="terms"
+              value="terms"
+              required
+            />
+            <label htmlFor="terms" className="text-white">
+              {" "}
+              I agree to the{" "}
+              <a
+                href="https://docs.google.com/document/d/e/2PACX-1vSOvlPFKc9uhvoPWow1CHtFbXQTUD5cJqKfnCfhnW-CYPOCd0iBO7AmmEvWVlbdKy-BQJoOxm2wMTXi/pub"
+                target="_blank"
+                className="text-[#8287FE]"
+              >
+                Terms and Conditions
+              </a>
+            </label>
+          </div>
           <button
             disabled={message == "Registering"}
             className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-white "

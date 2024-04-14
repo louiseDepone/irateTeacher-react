@@ -13,6 +13,7 @@ import student from "@/assets/student.svg";
 import profile from "@/assets/profile.svg";
 import enroll from "@/assets/enroll.svg";
 import admin from "@/assets/admin.svg";
+import matriculation from "@/assets/matriculation.svg";
 
 export default function TopNavigation() {
   const url = window.location.href;
@@ -43,8 +44,10 @@ export default function TopNavigation() {
         <Link
           to={"publicfeed"}
           className={` ${
-            urlState === "publicfeed" ? "text-[#8287FE] " : "text-white opacity-50"
-          } ` }
+            urlState === "publicfeed"
+              ? "text-[#8287FE] "
+              : "text-white opacity-50"
+          } `}
         >
           <img className="outline-green-500 min-w-5 w-5" src={home} alt="" />
         </Link>
@@ -93,9 +96,8 @@ export default function TopNavigation() {
                 ? "text-[#8287FE]"
                 : "text-white opacity-50 "
             } `}
-            >
+          >
             <img className="outline-green-500 min-w-5 w-5" src={admin} alt="" />
-            
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -107,7 +109,11 @@ export default function TopNavigation() {
                 : "text-white opacity-50 "
             } `}
           >
-            <img className="outline-green-500 min-w-5 w-5" src={enroll} alt="" />
+            <img
+              className="outline-green-500 min-w-5 w-5"
+              src={enroll}
+              alt=""
+            />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -119,7 +125,11 @@ export default function TopNavigation() {
                 : "text-white opacity-50 "
             } `}
           >
-            <img className="outline-green-500 min-w-5 w-5" src={approve} alt="" />
+            <img
+              className="outline-green-500 min-w-5 w-5"
+              src={approve}
+              alt=""
+            />
           </Link>
         )}
         {user.role.toLowerCase() === "admin" && (
@@ -139,6 +149,21 @@ export default function TopNavigation() {
             />
           </Link>
         )}
+        <Link
+          to={"matriculation"}
+          className={` ${
+            navigation.pathname.split("/")[2] === "matriculation"
+              ? "text-[#8287FE]"
+              : "text-white opacity-50 "
+          } `}
+        >
+          <img
+            className="outline-green-500 min-w-6"
+            src={matriculation}
+            color="red"
+            fill="red"
+          />
+        </Link>
       </div>
       <div className="justify-items-end hidden items-center md:flex flex-1 justify-end ">
         <a
@@ -146,7 +171,7 @@ export default function TopNavigation() {
           onClick={() => {
             localStorage.removeItem("token");
           }}
-          href="https://irate-teacher-react-phi.vercel.app/login"
+          href="https://irateteacher.vercel.app/main/foryoufeed/login"
         >
           <LogOut color="white" />
         </a>

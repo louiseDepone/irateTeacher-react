@@ -25,6 +25,7 @@ import Teacher from "./pages/Main/Teacher.jsx";
 import Postapproval from "./pages/Main/Postapproval.jsx";
 import Students from "./pages/Main/Students.jsx";
 import axios from "axios";
+import Matriculation from "./pages/Main/Matriculation.jsx";
 // axios.defaults.baseURL = "http://localhost:3300";
 axios.defaults.baseURL = import.meta.env.VITE_SECRET_KEY;
 const queryClient = new QueryClient({
@@ -94,6 +95,10 @@ const BrowserRouter = createBrowserRouter([
       {
         path: "/main/student",
         element: <Students />,
+      },
+      {
+        path: "/main/matriculation",
+        element: <Matriculation />,
       },
     ],
   },

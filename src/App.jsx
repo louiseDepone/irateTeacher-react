@@ -33,6 +33,7 @@ function App() {
 
     };
     
+    
     const deletePost = async () => {
       try {
         console.log("starting")
@@ -59,31 +60,7 @@ function App() {
       <Button>
         <Link to={"/register"}> Register </Link>
       </Button>
-      <button onClick={deletePost} >delete post</button>
-      <button onClick={fetchsinglePost}>postttttttt</button>
-      <div>
-        <iframe src={post?.url} width="100%" height="500px" />
-      </div>
-      <p>Upload File</p>
-      <form
-        action="#"
-        className="flex flex-col"
-        encType="multipart/form-data"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          const form = e.target;
-          const formData = new FormData(form);
-          try {
-            const token = localStorage.getItem("token"); 
-            await axios.post("/upload", formData);
-            console.log("done");
-          } catch (error) {}
-        }}
-      >
-        <input type="file" name="name" />
-        <input type="text" name="caption" placeholder="Caption" />
-        <Button>Submit</Button>
-      </form>
+
     </div>
   );
 }

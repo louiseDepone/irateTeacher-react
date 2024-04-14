@@ -21,6 +21,7 @@ import useUserStore from "@/hooks/store/useUserStore";
 import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { LogOut } from "lucide-react";
+import { useQueryMatriculation } from "@/hooks/query/useQueryMatriculation";
 
 export default function Main() {
   const queryRaitings = useQueryRaitings();
@@ -33,6 +34,7 @@ export default function Main() {
   const queryUserSubjectEnrolledIn = useQuerymultipleSubjectOfACertainUser();
   const queryUserTeacherEnrolledIn = useQuerymutliplesTeacherOfACertainUser();
   const queuryUserpinpost = useQueryPinPost();
+  const queryMatriculation = useQueryMatriculation();
 
   const location = useLocation().pathname.split("/")[2];
   const user = useUserStore((state) => state.user);

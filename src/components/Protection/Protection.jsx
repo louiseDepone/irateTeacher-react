@@ -36,6 +36,7 @@ export default function Protection({children}) {
         return navigate("main/foryoufeed", { replace: true });
     case "foryoufeed":
     case "publicfeed":
+    case "matriculation":
   }
     return children
   }

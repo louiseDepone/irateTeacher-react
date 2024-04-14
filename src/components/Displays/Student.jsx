@@ -40,7 +40,7 @@ export default function Student({  students }) {
       onClick={subjectset}
     >
       <div className="flex-1 ">
-        <p className="text-lg">{students.student_id}{students.name}</p>
+        <p className="text-lg">{students.student_id}</p>
       </div>
       <div className="h-full flex justify-end flex-wrap items-end gap-2">
         <button
