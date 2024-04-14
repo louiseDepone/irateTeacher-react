@@ -171,7 +171,7 @@ export default function TopNavigation() {
           onClick={() => {
             localStorage.removeItem("token");
           }}
-          href="https://irateteacher.vercel.app/main/foryoufeed/login"
+          href="https://irateteacher.vercel.app/login"
         >
           <LogOut color="white" />
         </a>
