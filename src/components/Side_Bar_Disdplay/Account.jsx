@@ -50,9 +50,7 @@ export default function Account() {
   return (
     <div className="  text-white space-y-6 p-8 pt-4 text-[0.8rem] h-full overflow-auto pb-7">
       <p className="text-mutedColor text-[0.9rem] font-bold">ENROLLED IN</p>
-      <button className="w-full rounded-md bg-linkedColor/70 hover:bg-linkedColor  py-3">
-        Apply Subject
-      </button>
+     
       <div className="">
         <div className="font-semibold flex py-1 justify-between h-full items-center">
           <input
