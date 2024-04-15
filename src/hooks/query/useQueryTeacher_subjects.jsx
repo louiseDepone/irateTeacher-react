@@ -27,9 +27,9 @@ export function useQueryTeacher_subjects() {
             } catch (error) {
               console.error(error);
 
-              localStorage.clear();
+              // localStorage.clear();
 
-                navigate(0, "/login", { replace: true });
+                // navigate(0, "/login", { replace: true });
               return error;
             }
           },

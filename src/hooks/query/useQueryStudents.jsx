@@ -23,8 +23,8 @@ export function useQueryStudents() {
             return data;
           } catch (error) {
             console.error(error);
-            localStorage.clear();
-                navigate(0, "/login", { replace: true });
+            // localStorage.clear();
+                // navigate(0, "/login", { replace: true });
             return error;
           }
         },

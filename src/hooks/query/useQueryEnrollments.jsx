@@ -23,8 +23,8 @@ export function useQueryEnrollments() {
               );
               return data;
             } catch (error) {
-              localStorage.clear();
-                navigate(0, "/login", { replace: true });
+              // localStorage.clear();
+                // navigate(0, "/login", { replace: true });
 
               console.error(error);
               return error;
