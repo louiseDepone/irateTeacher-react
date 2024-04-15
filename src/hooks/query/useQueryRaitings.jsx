@@ -2,9 +2,11 @@ import React from "react";
 import useDatabaseStore from "../store/useDatabaseStore";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function useQueryRaitings() {
   const setRatings = useDatabaseStore((state) => state.setRatings);
+  const navigate = useNavigate();
   const { data, refetch, isLoading, error, isRefetching } = useQuery({
     queryKey: [22222, "ratings"],
     queryFn: async () => {
@@ -20,6 +22,9 @@ export function useQueryRaitings() {
         return data;
       } catch (error) {
         console.error(error);
+        localStorage.clear();
+                navigate(0, "/login", { replace: true });
+        
         return error;
       }
     },

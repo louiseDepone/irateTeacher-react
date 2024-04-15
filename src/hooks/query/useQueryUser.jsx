@@ -2,9 +2,11 @@ import React from "react";
 import useUserStore from "../store/useUserStore";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function useQueryUser() {
   const setUser = useUserStore((state) => state.setUser);
+  const navigate = useNavigate();
   const { data, refetch, isLoading, error } = useQuery({
     queryKey: [11111, "user"],
     queryFn: async () => {
@@ -20,6 +22,11 @@ export function useQueryUser() {
         return data;
       } catch (error) {
         console.error(error);
+        localStorage.clear();
+        setUser(null)
+
+        navigate("/login");
+
         return error;
       }
     },

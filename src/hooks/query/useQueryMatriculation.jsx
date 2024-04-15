@@ -3,10 +3,12 @@ import useDatabaseStore from '../store/useDatabaseStore'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useUserStore from '../store/useUserStore';
+import { useNavigate } from 'react-router-dom';
 
 export function useQueryMatriculation() {
   const setMatriculation = useDatabaseStore((state) => state.setMatriculation);
   const user = useUserStore((state) => state.user);
+  const navigate = useNavigate();
   const { data, refetch, isLoading, error } = useQuery({
     queryKey: [938293892, "matriculationsss"],
     queryFn: async () => {
@@ -30,6 +32,9 @@ export function useQueryMatriculation() {
         return data;
       } catch (error) {
         console.error(error);
+        localStorage.clear();
+                navigate(0, "/login", { replace: true });
+
         return error;
       }
     },

@@ -2,9 +2,11 @@ import React from 'react'
 import useDatabaseStore from '../store/useDatabaseStore'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export function useQueryEnrollments() {
     const setEnrollment = useDatabaseStore((state) => state.setEnrollment);
+    const navigate = useNavigate();
         const { data, refetch, isLoading, error } = useQuery({
           queryKey: [8888888, "enrollments"],
           queryFn: async () => {
@@ -21,6 +23,9 @@ export function useQueryEnrollments() {
               );
               return data;
             } catch (error) {
+              localStorage.clear();
+                navigate(0, "/login", { replace: true });
+
               console.error(error);
               return error;
             }
