@@ -16,17 +16,21 @@ export default function Protection({children}) {
       localStorage.clear();
       setUser(null);
       // reset();
-      navigate(0, { replace: true })
       return navigate("../login", { replace: true });
     }
+
     if (isLoading) {
       return <div className='text-white'>Loading the protected gone...</div>;
     }else if (error) {
-    // reset();
-    // navigate(0, { replace: true })
-    return navigate("../login", { replace: true });
+      // localStorage.clear();
+      // setUser(null);
+      console.log(error, 'erroruuuuuuuuuuuuuuuu')
+    // return navigate("../login", { replace: true });
+     return <div className="text-white">Loading the protected gone...</div>;
   } else if(data.status == 201){
-    setUser(data.data)
+  
+  
+   setUser(data.data)
   switch (location?.toLowerCase()) {
     case "admin":
       if (data.data.role.toLowerCase() !== "admin")
@@ -37,7 +41,9 @@ export default function Protection({children}) {
     case "foryoufeed":
     case "publicfeed":
     case "matriculation":
+      return children;
+    default:
+      return  navigate("../login", { replace: true });;
   }
-    return children
   }
 }
