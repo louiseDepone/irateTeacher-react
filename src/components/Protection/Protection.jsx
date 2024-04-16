@@ -31,6 +31,10 @@ export default function Protection({children}) {
   
   
    setUser(data.data)
+   console.log(data, 'data')
+   if(!data.data.role.toLowerCase()){
+    return <div className="text-white">Loading your roal...</div>;
+   }
   switch (location?.toLowerCase()) {
     case "admin":
       if (data.data.role.toLowerCase() !== "admin")
