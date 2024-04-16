@@ -20,13 +20,13 @@ export default function Protection({children}) {
     }
 
     if (isLoading) {
-      return <div className='text-white'>Loading the protected gone...</div>;
+      return <div className='text-white'>Loading the useQuery User</div>;
     }else if (error) {
       // localStorage.clear();
       // setUser(null);
       console.log(error, 'erroruuuuuuuuuuuuuuuu')
     // return navigate("../login", { replace: true });
-     return <div className="text-white">Loading the protected gone...</div>;
+     return <div className="text-white">Loading the protected gone... , {error}</div>;
   } else if(data.status == 201){
   
   
