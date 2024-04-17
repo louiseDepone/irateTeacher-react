@@ -37,13 +37,15 @@ export default function Protection({children}) {
    }
   switch (location?.toLowerCase()) {
     case "admin":
-      if (data.data.role.toLowerCase() !== "admin")
-        return navigate("main/foryoufeed", { replace: true });
     case "teachersubject":
+    case "postapproval":
+    case "student":
       if (data.data.role.toLowerCase() !== "admin")
         return navigate("main/foryoufeed", { replace: true });
     case "foryoufeed":
     case "publicfeed":
+    case "teacher":
+    case "subject":  
     case "matriculation":
       return children;
     default:
