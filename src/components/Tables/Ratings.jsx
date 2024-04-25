@@ -32,7 +32,7 @@ export default function Ratings() {
     <table className="w-full">
       <TableCaption>A list of Critique</TableCaption>
       <TableHeader>
-        <TableRow className="border-grayish text-white">
+        <TableRow className="border-grayish text-fontColor">
           <TableHead>No.</TableHead>
           <TableHead className="text-nowrap">Teacher</TableHead>
           <TableHead className="text-nowrap w-[30%] ">Subject</TableHead>

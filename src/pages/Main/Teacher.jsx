@@ -54,7 +54,7 @@ export default function Teacher() {
         <input
           type="text"
           placeholder="Search name and comments"
-          className="w-full bg-primaryColor border rounded-md text-white px-6  border-borderColor py-2"
+          className="w-full bg-primaryColor border rounded-md text-fontColor px-6  border-borderColor py-2"
           onChange={(e) => {
             setseratch(e.target.value);
           }}
@@ -68,15 +68,15 @@ export default function Teacher() {
           {show ? "Show Less Filter" : "Show More Filter"}
         </button>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2  ">
         <button
           onClick={() => {
             setUserChosenTeacher(null);
           }}
-          className={`text-white text-xs ${
+          className={`text-fontColor text-xs ${
             userChosenTeacher === null
-              ? " bg-linkedColor -order-1 "
-              : "bg-secondaryColor"
+              ? " bg-linkedColor -order-1 text-primaryColor  "
+              : "bg-primaryColor hover:text-primaryColor"
           }  hover:bg-linkedColor rounded-xl p-3 px-4 text-sm`}
         >
           All
@@ -88,10 +88,10 @@ export default function Teacher() {
               onClick={() => {
                 setUserChosenTeacher(e.teacher_id);
               }}
-              className={`text-white text-xs ${
+              className={`text-fontColor text-xs ${
                 userChosenTeacher === e.teacher_id
-                  ? " bg-linkedColor  -order-1 "
-                  : "bg-secondaryColor"
+                  ? " bg-linkedColor text-primaryColor  -order-1 "
+                  : "bg-primaryColor  hover:text-primaryColor"
               }  hover:bg-linkedColor rounded-xl p-3 px-4 text-sm`}
             >
               {e.name}
@@ -138,7 +138,7 @@ export default function Teacher() {
       </div>
       <div className="w-full flex justify-center items-center h-10">
         <button
-          className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+          className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={handleLoadMore}
           disabled={numberToLoad >= lengthOfOriginalRatings}
         >

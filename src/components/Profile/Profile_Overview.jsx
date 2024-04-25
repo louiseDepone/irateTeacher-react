@@ -26,7 +26,7 @@ export default function Profile_Overview() {
   return (
     <div className=" fixed top-16  w-60 hidden lg:flex justify-start items-center flex-col h-[calc(100vh-48px)] py-4 border-r border-[#1B2730]">
       <div>
-        <div className="bg-white w-16 h-16 flex items-center justify-center ">
+        <div className="bg-fontColor w-16 h-16 flex items-center justify-center ">
           <p className="text-[#1B2730] text-lg font-bold">
             {user?.name.charAt(0).toUpperCase() +
               user?.name.charAt(user?.name.length - 1).toUpperCase()}
@@ -34,7 +34,7 @@ export default function Profile_Overview() {
         </div>
       </div>
       <div className="text-center py-1 space-y-1">
-        <p className="text-white text-sm capitalize">{user?.name}</p>
+        <p className="text-fontColor text-sm capitalize">{user?.name}</p>
         <p className="text-[#D7D7D7]  text-xs">{user?.id}</p>
       </div>
 
@@ -48,7 +48,7 @@ export default function Profile_Overview() {
             </tr>
           </thead>
           <tbody>
-            <tr className="text-white text-sm font-normal text-center">
+            <tr className="text-fontColor text-sm font-normal text-center">
               <td className="px-2">{subjects.length}</td>
               <td className="px-2">{ratings.length}</td>
               <td className="px-2">0</td>
@@ -56,7 +56,7 @@ export default function Profile_Overview() {
           </tbody>
         </table>
       </div>
-      <div className="text-white  w-full  py-5  border-t border-grayish overflow-auto space-y-7 h-fit ">
+      <div className="text-fontColor  w-full  py-5  border-t border-grayish overflow-auto space-y-7 h-fit ">
         <p className="text-lg font-bold pl-5">Approved Posts</p>
 
         {approved.map((raiting, index) => {
@@ -93,7 +93,7 @@ export default function Profile_Overview() {
 
       <div className="w-full flex justify-center items-center h-10">
         <button
-          className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+          className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={() => setNumberToLoad(numberToLaod + 10)}
         >
           Load More

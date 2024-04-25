@@ -52,28 +52,31 @@ function AllPost({
  
   return (
     <div
-      className={` flex w-full p-5 rounded-lg border min-w-fit text-[0.7rem] border-borderColor hover:bg-secondaryColor text-white gap-3  h-fit text-xs ${
-        !studentName || !teacherName || !subjectName || !comment
+      className={`bg-primaryColor flex w-full p-5 rounded-lg border min-w-fit text-[0.7rem] border-borderColor/60  text-fontColor gap-3  h-fit text-xs boxborderpost  ${
+        !studentName || !teacherName || !subjectName 
           ? "animate-pulse"
           : ""
       }`}
     >
       <div>
         {studentName !== null ? (
-          <div className="bg-white rounded-full w-8 h-8 object-cover flex items-center justify-center">
-            <span className="text-[#1B2730] font-bold">
+          <div className="bg-fontColor rounded-full w-8 h-8 object-cover flex items-center justify-center">
+            <span className="text-primaryColor font-bold">
               {studentName?.charAt(0).toUpperCase() +
                 studentName?.charAt(studentName.length - 1).toUpperCase()}
             </span>
           </div>
         ) : (
-          <div className="bg-mutedColor rounded-full w-8 h-8 object-cover flex items-center justify-center"></div>
+          <div className="bg-fontColor rounded-full w-8 h-8 object-cover flex items-center justify-center"></div>
         )}
       </div>
       <div className="w-full ">
         <div className="flex md:gap-5 gap-4 items-center justify w-full flex-wrap">
           <p>{studentName}</p>
-          <p className="text-transparent bg-muted  w-1 h-1 rounded-full"> .</p>
+          <p className="text-transparent bg-fontColor  w-1 h-1 rounded-full">
+            {" "}
+            .
+          </p>
           <span className="text-center text-mutedColor text-xs">
             {date?.split("T")[0].replace(/-/g, "/") || (
               <div className="h-2 w-20 rounded bg-mutedColor opacity-3"> </div>
@@ -105,8 +108,7 @@ function AllPost({
                     );
                     refetch();
                     refetchpinpost();
-                  } catch (error) {
-                  }
+                  } catch (error) {}
                 };
                 changdata();
               }}
@@ -144,7 +146,7 @@ function AllPost({
                   .
                 </span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-[#10232f] text-white w-44 mr-14 p-4 border-[0.3px]">
+              <DropdownMenuContent className="bg-[#10232f] text-fontColor w-44 mr-14 p-4 border-[0.3px]">
                 <DropdownMenuSeparator />
                 <button className="w-full" onClick={() => {}}>
                   <DropdownMenuItem>Edit</DropdownMenuItem>
@@ -214,22 +216,13 @@ function AllPost({
             </div>
           </div>
           <div className="text-left w-full text-[0.7rem] py-2">
-            {comment || (
-              <div className="flex gap-5 flex-wrap w-full justify-center">
-                <div className="h-2 w-56 rounded bg-mutedColor opacity-3">
-                  {" "}
-                </div>
-                <div className="h-2 w-44 rounded bg-mutedColor opacity-3">
-                  {" "}
-                </div>
-              </div>
-            )}
+            {comment}
           </div>
           <div className="flex flex-col  w-full justify-center items-center space-y-3 ">
-            <div className="flex text-xs justify-center items-center w-full  text-white font-normal flex-wrap gap-3 text-[0.7rem]">
+            <div className="flex text-xs justify-evenly items-center w-full  text-fontColor font-normal flex-wrap gap-3 text-[0.7rem]">
               <div className="flex flex-col  justify-center items-center  gap-2">
                 <p>Teaching Method</p>
-                <Rating 
+                <Rating
                   emptySymbol={<img width={20} src={starempty} alt="empty" />}
                   placeholderSymbol={
                     <img width={20} src={starcolored} alt="colored" />
@@ -329,7 +322,12 @@ function AllPost({
               <p>{likes}</p>
             </div>
             <div className="flex gap-2 justify-center items-center">
-              <img src={dislikeemtpy} width={17} className="pt-[0.3rem]" alt="" />
+              <img
+                src={dislikeemtpy}
+                width={17}
+                className="pt-[0.3rem]"
+                alt=""
+              />
               <p>{dislikes}</p>
             </div>
           </div>
@@ -361,8 +359,7 @@ function AllPost({
                     }
                   );
                   refetchpinpost();
-                } catch (error) {
-                }
+                } catch (error) {}
               };
               changdata();
             }}
@@ -386,8 +383,7 @@ function AllPost({
                     }
                   );
                   refetchpinpost();
-                } catch (error) {
-                }
+                } catch (error) {}
               };
               changdata();
             }}

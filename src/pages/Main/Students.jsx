@@ -30,7 +30,7 @@ export default function Students() {
   const [filter, setFilter] = useState([]);
   return (
     <div className=" pb-20 md:pb-0">
-      <div className="flex flex-col  text-white w-full p-5">
+      <div className="flex flex-col  text-fontColor w-full p-5">
         <p className="text-xl">Students</p>
       </div>
       <div className="p-5 flex flex-wrap gap-5">

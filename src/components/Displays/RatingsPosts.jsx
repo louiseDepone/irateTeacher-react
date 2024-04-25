@@ -25,7 +25,7 @@ export default function RatingsPosts({ post }) {
   const { refetch, isRefetching } = useQueryRaitings();
   return (
     <div
-      className="border border-grayish hover:bg-grayish w-full  md:w-[48.4%] flex flex-col min-h-56 p-4  text-white"
+      className="border border-grayish hover:bg-grayish w-full  md:w-[48.4%] flex flex-col min-h-56 p-4  text-fontColor"
       onClick={() => {
         // setstudentsEnroled(teacher_subject);
       }}
@@ -38,12 +38,8 @@ export default function RatingsPosts({ post }) {
             <span className="text-mutedColor ">Teacher</span>
           </p>
           <p className="text-xs   gap-1 flex flex-col  ">
-            <span>
-              {post.subjectname}
-              </span> 
-            <span>
-             {post.teachername}{" "}
-              </span> 
+            <span>{post.subjectname}</span>
+            <span>{post.teachername} </span>
           </p>
         </div>
       </div>
@@ -55,10 +51,17 @@ export default function RatingsPosts({ post }) {
           <DialogTrigger className="p-2 px-3 bg-[#8287FE] text-xs">
             View Post
           </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
-              <DialogDescription>{post.comment}</DialogDescription>
+          <DialogContent className="p-10  ">
+            <DialogHeader >
+                <DialogTitle className="w-full">Are you absolutely sure?</DialogTitle>
+                <DialogDescription>
+                  <div>Teacher: {post.teachername}</div>
+                  <div>Subject: {post.subjectname}</div>
+
+                  <div className=" pt-2 mt-2 border-t border-fontColor">
+                    Comment: {post.comment}
+                  </div>
+                </DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
@@ -74,7 +77,7 @@ export default function RatingsPosts({ post }) {
               try {
                 const deleting = await axios.put(
                   `/approveDisapproveraiting/${post.rating_id}`,
-                   {approved: post.approved == 0 ? 1 : 0},
+                  { approved: post.approved == 0 ? 1 : 0 },
                   {
                     headers: {
                       "Content-Type": "application/json",

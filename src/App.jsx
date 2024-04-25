@@ -1,68 +1,112 @@
-import { useEffect, useState } from 'react'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from './components/ui/button';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { set } from 'react-hook-form';
-function App() {
-  const [count, setCount] = useState(0)
 
-  const [post, setPost] = useState()  
-  
-    const fetchsinglePost = async () => {
-      try {
-        console.log("starting")
-        const response = await axios.get("http://localhost:3200/singePost",{
-          headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-        });
-        const ll = await response.data;
-        setPost({url:ll});
-      } catch (error) {
-        console.log("error")
-        console.error("Axios error:", error);
-      }
+import App from "@/App";
+import AllPost from "@/components/Displays/AllPost";
+import { Button } from "@/components/ui/button";
+import useDatabaseStore from "@/hooks/store/useDatabaseStore";
+import useUserStore from "@/hooks/store/useUserStore";
+import React from "react";
+import { useQueryMatriculation } from "./hooks/query/useQueryMatriculation";
 
-    };
-    
-    
-    const deletePost = async () => {
-      try {
-        console.log("starting")
-        const response = await axios.delete("http://localhost:3200/deletePost",{
-          headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-        });
-        console.log("done")
-      } catch (error) {
-        console.log("error")
-        console.error("Axios error:", error);
-      }
-    }
+import search from "@/assets/search.svg";
+import { useQueryPublicEndpoint } from "./hooks/query/useQueryPublicEndpoint";
+import { Link } from "react-router-dom";
+import Account from "./components/Side_Bar_Disdplay/Account";
+import PublicAccount from "./components/Side_Bar_Disdplay/Public-Account";
+  // setPublicEdpoint: (publicEdpoint) => set({ publicEdpoint }),
+
+export default function PublicFeed() {
+  const setPublicEdpoint = useDatabaseStore((state) => state.setPublicEdpoint);
+  const publicEndpoint = useQueryPublicEndpoint();
+  const [numberToLoad, setNumberToLoad] = React.useState(10);
+  const lengthoforiginalrating = useDatabaseStore(
+    (state) =>
+      state.publicEdpoint.length
+  );
+  const publicEdpoint = useDatabaseStore((state) =>
+    state.publicEdpoint
+      .slice(0, numberToLoad)
+  );
 
   return (
-    <div
-      className="bg-white h-screen
-    w-full flex  flex-wrap justify-center items-center gap-4"
-    >
-      <Button>
-        <Link to={"/login"}> Login </Link>
-      </Button>
-      <Button>
-        <Link to={"/register"}> Register </Link>
-      </Button>
+    <div className="bg-bodyBackground">
+      <div className=" px-5 sticky md:top-0 top-[calc(100vh-4rem)]  bg-primaryColor/85   z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1px] border-borderColor/50 flex justify-between items-center w-full lg:flex-nowrap overflow-auto boxborder ">
+        <div>
+          sdsd
+        </div>
+        <div className="flex gap-6 pr-5 text-sm font-bold">
+          <Link to={"/login"}>Login</Link>
+          <Link to={"/register"}>Register</Link>
+        </div>
+      </div>
+      <div className="flex w-full gap-2 px-[4rem] pt-6">
+        <div className=" space-y-3 pb-20 md:pb-0 w-[calc(65vw-4rem)]">
+          {/* <App /> */}
 
+          <div className="font-semibold flex py-1 justify-between  items-center">
+            <input
+              name="gg"
+              id="gg"
+              type="text"
+              className="font-normal p-2 rounded-md text-xs  bg-primaryColor border  pl-4 text-[0.7rem] h-full flex-1 "
+              placeholder="search subject name"
+              onChange={(e) => {
+                // setsearchSubject(e.target.value);
+              }}
+            />
+
+          </div>
+
+          {publicEdpoint.map((rating, index) => {
+            return (
+              <AllPost
+                key={index}
+                deleted={rating?.deleted}
+                approval={rating?.approved}
+                attitude={rating?.attitude}
+                comment={rating?.comment}
+                communication={rating?.communication}
+                date={rating?.date}
+                dislikes={rating?.dislikes}
+                engagement={rating?.engagement}
+                likes={rating?.likes}
+                organization={rating?.organization}
+                rating_id={rating?.rating_id}
+                studentName={rating?.studentname}
+                subjectName={rating?.subjectname}
+                supportiveness={rating?.supportiveness}
+                teacherName={rating?.teachername}
+                teaching_method={rating?.teaching_method}
+              />
+            );
+          })}
+
+          <div>
+            {numberToLoad >= lengthoforiginalrating && (
+              <p
+                className="
+        w-full text-mutedColor text-xs text-center
+        "
+              >
+                {" "}
+                You've reached the end of the post!
+              </p>
+            )}
+          </div>
+          <div className="w-full flex justify-center items-center h-10 ">
+            <button
+              className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+              onClick={() => setNumberToLoad(numberToLoad + 10)}
+            >
+              {numberToLoad <= lengthoforiginalrating
+                ? "Load More"
+                : "No More Data"}
+            </button>
+          </div>
+        </div>
+        <div className="fixed  ml-[calc(65vw-3rem)] w-[calc(35vw-4rem)]">
+                <PublicAccount />
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App

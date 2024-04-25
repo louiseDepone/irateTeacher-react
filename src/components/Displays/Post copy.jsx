@@ -75,7 +75,7 @@ export default function Post() {
     <div className="flex w-full p-3 border-b border-grayish ">
       <div className="px-3">
         {" "}
-        <div className="bg-white rounded-full w-8 h-8 object-cover flex items-center justify-center">
+        <div className="bg-fontColor rounded-full w-8 h-8 object-cover flex items-center justify-center">
           <span className="text-[#1B2730] text-2xs font-bold">
             {user.name.charAt(0).toUpperCase() +
               user.name.charAt(user.name.length - 1).toUpperCase()}
@@ -88,7 +88,7 @@ export default function Post() {
             type="text"
             name="comment"
             placeholder="Enter a comment for a teacher"
-            className=" w-[70%]  resize-none  focus:outline-none focus:h-[200px] border-none  bg-transparent text-white rounded-md px-3 py-2"
+            className=" w-[70%]  resize-none  focus:outline-none focus:h-[200px] border-none  bg-transparent text-fontColor rounded-md px-3 py-2"
             wrap="soft"
             rows="1"
             spellCheck="true"
@@ -97,9 +97,9 @@ export default function Post() {
 
           <div className=" h-fit text-xs w-[30%]">
             <div className="flex justify-center items-center w-full gap-4">
-              <p className="text-white">Teacher</p>
+              <p className="text-fontColor">Teacher</p>
               <select
-                className="text-white bg-transparent w-full "
+                className="text-fontColor bg-transparent w-full "
                 onChange={(e) => {
                   setUserSubjects(e.target.value);
                   console.log(e.target.value);
@@ -123,11 +123,11 @@ export default function Post() {
               </select>
             </div>
             <div className="flex justify-center items-center w-full gap-4">
-              <p className="text-white">Subject</p>
+              <p className="text-fontColor">Subject</p>
               <select
                 name="subject"
                 id="subject"
-                className="bg-transparent text-white  mp-3 w-full"
+                className="bg-transparent text-fontColor  mp-3 w-full"
                 disabled={userSubjects == "null"}
               >
                 <option className="text-black " value={"null"}>
@@ -152,7 +152,7 @@ export default function Post() {
         </div>
 
         <div className="flex flex-col items-end w-full   space-y-3">
-          <div className="flex text-xs justify-between  w-full text-white font-normal flex-wrap gap-3">
+          <div className="flex text-xs justify-between  w-full text-fontColor font-normal flex-wrap gap-3">
             <div className="flex flex-col justify-center items-center ">
               <p>Teaching Method</p>
               <Rating

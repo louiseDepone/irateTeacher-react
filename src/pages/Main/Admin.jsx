@@ -31,44 +31,39 @@ export default function Admin() {
     teacher_subjects: true,
   });
   return (
-    <div className="w-full flex justify-center flex-col  p-7 text-white ">
+    <div className="w-full flex justify-center flex-col  p-7 text-fontColor ">
       {/* <div className=""> */}
-        <div className="flex justify-between">
-          Teacher
-          {open.teachers ? (
-            <EyeIcon onClick={() => setOpen({ ...open, teachers: false })} />
-          ) : (
-            <EyeOffIcon onClick={() => setOpen({ ...open, teachers: true })} />
-          )}
-        </div>
-        <div
-          className={` 
+      <div className="flex justify-between">
+        Teacher
+        {open.teachers ? (
+          <EyeIcon onClick={() => setOpen({ ...open, teachers: false })} />
+        ) : (
+          <EyeOffIcon onClick={() => setOpen({ ...open, teachers: true })} />
+        )}
+      </div>
+      <div
+        className={` 
           ${open.teachers ? "flex" : "hidden"}
         `}
-        >
-          <AllTeacher />
-        </div>
-      
-        <div className="flex justify-between">
-          Subjects
-          {open.subjects ? (
-            <EyeIcon onClick={() => setOpen({ ...open, subjects: false })} />
-          ) : (
-            <EyeOffIcon onClick={() => setOpen({ ...open, subjects: true })} />
-          )}
-        </div>
-
-        <div
-          className={`  
+      >
+        <AllTeacher />
+      </div>
+      <div className="flex justify-between">
+        Subjects
+        {open.subjects ? (
+          <EyeIcon onClick={() => setOpen({ ...open, subjects: false })} />
+        ) : (
+          <EyeOffIcon onClick={() => setOpen({ ...open, subjects: true })} />
+        )}
+      </div>
+      <div
+        className={`  
           ${open.subjects ? "block" : "hidden"}
         `}
-        >
-          <Subjects />
-        </div>
-
-   
-
-    
-    // </div>
+      >
+        <Subjects />
+      </div>
+      //{" "}
+    </div>
   );
 }

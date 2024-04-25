@@ -40,7 +40,7 @@ export default function PinnedPost() {
 // teacher_id: 1;
 // teaching_method: 0;
   return (
-    <div className=" fixed top-20  w-80 hidden xl:flex justify-start items-center  flex-col h-[calc(100vh-48px)] py-4  text-white px-9">
+    <div className=" fixed top-20  w-80 hidden xl:flex justify-start items-center  flex-col h-[calc(100vh-48px)] py-4  text-fontColor px-9">
       <p className="text-mutedColor text-[0.9rem] font-bold text-left w-full py-3">
         {userpinpost.length} Pinned Post
       </p>
@@ -49,7 +49,7 @@ export default function PinnedPost() {
           return (
             <div
               key={index}
-              className="w- flex flex-col gap-4 relative hover:bg-secondaryColor text-[0.6rem] w-full border border-borderColor rounded-md p-5 "
+              className=" flex flex-col gap-4 relative hover:bg-primaryColor hover:boxborderpost text-[0.6rem] w-full border border-borderColor rounded-md p-5 "
             >
               <img
                 src={pin}
@@ -69,8 +69,7 @@ export default function PinnedPost() {
                         }
                       );
                       refetch();
-                    } catch (error) {
-                    }
+                    } catch (error) {}
                   };
                   unpin();
                 }}

@@ -23,7 +23,7 @@ export default function Students() {
     <table className='w-full overflow-auto'>
       <TableCaption>A list of students.</TableCaption>
       <TableHeader>
-        <TableRow className="border-grayish text-white">
+        <TableRow className="border-grayish text-fontColor">
           <TableHead>No.</TableHead>
           {/* <TableHead>Email</TableHead> */}
           <TableHead>Student Id</TableHead>
@@ -43,7 +43,7 @@ export default function Students() {
                 {student.approved == 1 ? "Approved" : "Pending"}
               </TableCell>
               <TableCell className="space-x-2 flex">
-                <button className="text-white bg-red-500 px-2 py-1 rounded-md">
+                <button className="text-fontColor bg-red-500 px-2 py-1 rounded-md">
                   Restrict
                 </button>
                 <button

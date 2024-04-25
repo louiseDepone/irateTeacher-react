@@ -16,10 +16,10 @@ export default function Teachersubject({ teacher_subject }) {
   const {refetch:enrollmentfetch} = useQueryEnrollments()
   return (
     <div
-      className="border border-grayish hover:bg-grayish  w-full md:w-[48.4%] flex flex-col min-h-48 p-4  text-white"
+      className="border border-grayish hover:bg-grayish  w-full md:w-[48.4%] flex flex-col min-h-48 p-4  text-fontColor"
       onClick={() => {
         setstudentsEnroled(teacher_subject);
-        setToShow("program")
+        setToShow("program");
       }}
     >
       <div className="flex-1">
@@ -28,9 +28,9 @@ export default function Teachersubject({ teacher_subject }) {
       </div>
       <div className="h-full flex justify-end flex-wrap items-end gap-2">
         <button
-          className="p-2 px-3 bg-[#8287FE] text-xs"
+          className="p-2 px-3 bg-[#8287FE] text-xs text-primaryColor"
           onClick={() => {
-            setToShow("program")
+            setToShow("program");
             setstudentsEnroled(teacher_subject);
           }}
         >
@@ -39,8 +39,8 @@ export default function Teachersubject({ teacher_subject }) {
         <button
           className={
             teacher_subject.deleted == 0
-              ? "p-2 px-3 bg-red-500 text-xs"
-              : "p-2 px-3 bg-green-400 text-xs"
+              ? "p-2 px-3 bg-red-500 text-xs text-primaryColor"
+              : "p-2 px-3 bg-green-400 text-xs text-primaryColor"
           }
           onClick={() => {
             const ratings = async () => {

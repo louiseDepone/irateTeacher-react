@@ -101,7 +101,7 @@ export default function Postapproval() {
   // }, [filter]);
   return (
     <div className=" pb-20 md:pb-0">
-      <div className="flex flex-col  text-white w-full p-5">
+      <div className="flex flex-col  text-fontColor w-full p-5">
         <p className="text-xl">Posts</p>
         {ratings.length == 0 && (
           <p className="text-center text-lg text-mutedColor">

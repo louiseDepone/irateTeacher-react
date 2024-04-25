@@ -92,7 +92,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
 
         refetch();
         refuse.current.reset();
-        divPara.current.innerText = "Enter a comment for a teacher";
+        // divPara.current.innerText = "Enter a comment for a teacher";
         return;
       } catch (error) {
       }
@@ -111,13 +111,14 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
         ["foryoufeed", "publicfeed"].includes(location) ? " flex " : " hidden "
       } justify-center flex-col items-center py-6`}
     >
-      <div className="bg-white rounded-full w-12 h-12 object-cover flex items-center justify-center">
-        <span className="text-[#1B2730] font-bold">
+      <div className="bg-fontColor rounded-full w-12 h-12 object-cover flex items-center justify-center">
+        <span className="text-primaryColor font-bold">
           {user.name.charAt(0).toUpperCase() +
             user.name.charAt(user.name.length - 1).toUpperCase()}
         </span>
       </div>
-      <p className="text-xl font-bold text-white pt-1">{user.name}</p>
+      <p className="pt-1 text-xs">{user?.id}</p>
+      <p className="text-xl font-bold text-fontColor">{user.name}</p>
       <p className="text-mutedColor text-[0.6rem] pt-4">
         Rate your teacher's performance based on your personal experience.
       </p>
@@ -129,12 +130,16 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
               <input
                 type="text"
                 placeholder="Enter a comment for a teacher"
-                className=" bg-secondaryColor w-full h-12 rounded-[20px] pl-7 text-[0.6rem] px-4 py-2  focus:outline-none"
+                className=" border-borderColor/60 
+boxborderpost bg-primaryColor w-full h-12 rounded-[20px] pl-7 text-[0.6rem] px-4 py-2  focus:outline-none"
               />
               <div className="text-nowrap text-linkedColor text-xs  ">POST</div>
             </div>
           </DialogTrigger>
           <DialogContent className=" h-full w-full md:w-1/3 md:max-h-[80%] md:h-fit overflow-auto bg-primaryColor  p-8 border-borderColor ">
+            <div className="w-full text-center text-lg font-bold text-fontColor">
+              CREATE POST
+            </div>
             <form
               className="w-full space-y-3"
               onSubmit={submitPost}
@@ -142,7 +147,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
             >
               <div
                 ref={divPara}
-                className="text-white w-full border-l pl-5  post  focus:outline-none mt-6"
+                className="text-fontColor border-fontColor w-full border-l-4 pl-5  post  focus:outline-none mt-6"
                 contentEditable="plaintext-only"
                 data-lexical-text="true"
                 suppressContentEditableWarning={true}
@@ -164,9 +169,9 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
               {/* ------------------------- */}
               <div className=" h-fit text-xs lg:flex sm:gap-3 ">
                 <div className="flex justify-center items-center h-16 w-full gap-4">
-                  <p className="text-white text-nowrap">Teacher</p>
+                  <p className="text-fontColor text-nowrap">Teacher</p>
                   <select
-                    className="text-white bg-transparent w-full h-full "
+                    className="text-fontColor bg-transparent w-full h-full "
                     onChange={(e) => {
                       setUserSubjects(e.target.value);
                     }}
@@ -189,11 +194,11 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                   </select>
                 </div>
                 <div className="flex justify-center items-center w-full h-16 gap-4 ">
-                  <p className="text-white text-nowrap">Subject</p>
+                  <p className="text-fontColor text-nowrap">Subject</p>
                   <select
                     name="subject"
                     id="subject"
-                    className="bg-transparent text-white  mp-3  h-full w-full"
+                    className="bg-transparent text-fontColor  mp-3  h-full w-full"
                     disabled={userSubjects == "null"}
                   >
                     <option className="text-black " value={"null"}>
@@ -219,7 +224,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
               {/* ------------------------- */}
               <div className="flex flex-col items-end w-full   space-y-3">
                 <div className="bg-red-500 w-full"></div>
-                <div className="flex text-xs justify-between  w-full text-white font-normal flex-wrap gap-3">
+                <div className="flex text-xs justify-between  w-full text-fontColor font-normal flex-wrap gap-3">
                   <div className="flex flex-col justify-center items-center ">
                     <p>Teaching Method</p>
                     <Rating
@@ -322,12 +327,24 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
                     />
                   </div>
                 </div>
-                <div className="space-x-2 w-full ">
-                  <button className="text-xs text-linkedColor ">About ratings</button>
+                <div className="space-x-2 w-full  py-4 pt-10 text-primaryColor ">
+                  <button className="text-xs text-linkedColor ">
+                    About ratings
+                  </button>
                   <DialogClose className="bg-red-500 rounded-lg px-4 py-1 float-right">
                     Discard
                   </DialogClose>
-                  <button className="bg-[#8287FE] rounded-lg px-4 py-1 float-right">
+                  <button
+                    disabled={
+                    ratings.teaching_methods === 0 ||
+                    ratings.communication === 0 ||
+                    ratings.supportiveness === 0 ||
+                    ratings.engagement === 0 ||
+                    ratings.organization === 0 ||
+                    ratings.attitude === 0 
+                  }
+                    className="bg-[#8287FE] rounded-lg px-4 py-1 float-right"
+                  >
                     Post
                   </button>
                 </div>

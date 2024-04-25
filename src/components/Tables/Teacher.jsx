@@ -78,7 +78,7 @@ export default function AllTeacher() {
     <table className="w-full">
         <TableCaption>A list of Teachers</TableCaption>
         <TableHeader>
-          <TableRow className="border-grayish text-white">
+          <TableRow className="border-grayish text-fontColor">
             <TableHead>No.</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
@@ -116,10 +116,10 @@ export default function AllTeacher() {
                 <TableCell>{teacher.name}</TableCell>
                 <TableCell>{teacher.email}</TableCell>
                 <TableCell className="space-x-2">
-                  <button className="text-white bg-blue-500 px-2 py-1 rounded-md">
+                  <button className="text-fontColor bg-blue-500 px-2 py-1 rounded-md">
                     Edit
                   </button>
-                  <button className="text-white bg-red-500 px-2 py-1 rounded-md">
+                  <button className="text-fontColor bg-red-500 px-2 py-1 rounded-md">
                     Delete
                   </button>
                 </TableCell>

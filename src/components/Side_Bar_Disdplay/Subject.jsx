@@ -56,7 +56,7 @@ useEffect(() => {
 ]);
   return (
     <>
-      <div className="flex  items-start justify-start gap-2 flex-col  text-white text-[0.8rem] w-full pt-4 pl-5 pb-14 h-full">
+      <div className="flex  items-start justify-start gap-2 flex-col  text-fontColor text-[0.8rem] w-full pt-4 pl-5 pb-14 h-full">
         <div className="flex gap-5 ">
           <p className="text-mutedColor text-nowrap">Student</p>
           {selectedStudentSubjects?.student_id}
@@ -72,13 +72,13 @@ useEffect(() => {
                 +
               </button>
             </DialogTrigger>
-            <DialogContent className="w-[70%] h-[80%] bg-primaryColor border-borderColor text-white gap-0 flex flex-col overflow-auto hf">
+            <DialogContent className="w-[70%] h-[80%] bg-primaryColor border-borderColor text-fontColor gap-0 flex flex-col overflow-auto hf">
               <div className="text-sm">
                 {" "}
                 <span className="tetx-xs text-mutedColor">Studend Id </span>
                 {selectedStudentSubjects?.student_id}
               </div>
-              <div className=" flex-col w-full lg:h-full lg:flex-row bg-primaryColor border-borderColor text-white  flex  pb-10">
+              <div className=" flex-col w-full lg:h-full lg:flex-row bg-primaryColor border-borderColor text-fontColor  flex  pb-10">
                 <div className="w-full h-full  ">
                   <div className="py-6 font-semibold text-xs text-mutedColor ">
                     Student Enrolled In
@@ -227,7 +227,7 @@ useEffect(() => {
             )
           }
         <div className="w-full h-full overflow-auto pb-5 pr-4">
-          <div className="flex gap-5 flex-col text-white pt-3  w-full">
+          <div className="flex gap-5 flex-col text-fontColor pt-3  w-full">
             {originallistOfEnrolledSubjects.map((subs, index) => {
               return (
                 <>

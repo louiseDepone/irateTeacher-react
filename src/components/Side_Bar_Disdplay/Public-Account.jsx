@@ -23,8 +23,13 @@ import axios from "axios";
 import { useQueryEnrollments } from "@/hooks/query/useQueryEnrollments";
 import useUserStore from "@/hooks/store/useUserStore";
 import { Link } from "react-router-dom";
-export default function Account() {
-  const user = useUserStore((state) => state.user);
+import { useQueryTeachers } from "@/hooks/query/useQueryTeachers";
+import { useQuerySubjects } from "@/hooks/query/useQuerySubjects";
+export default function PublicAccount() {
+
+
+  
+  // const user = useUserStore((state) => state.user);
   // userChosenSubject;
   // userChosenTeacher;
   // setUserChosenSubject;
@@ -35,17 +40,17 @@ export default function Account() {
   const setUserChosenTeacher = useUserStore(
     (state) => state.setUserChosenTeacher
   );
-  const ratings = useDatabaseStore((state) =>
-    state.ratings?.filter(
-      (rating) => rating.approved == 1 && rating.deleted == 0
-    )
-  );
-
+  const ratings = useDatabaseStore((state) => state.publicEdpoint);
+  
   const [searchSubject, setsearchSubject] = useState("");
   const [searchteachers, setsearchteachers] = useState("");
-
-  const subjects = useUserStore((state) => state.userSubjectEnrolledin);
-  const teachers = useUserStore((state) => state.userTeacherEnrolledin);
+  
+  const queryTeacher = useQueryTeachers();
+  const querySubject = useQuerySubjects();
+  const teachers = useDatabaseStore((state) => state.teachers);
+  const subjects = useDatabaseStore((state) => state.subjects);
+  // const subjects = useUserStore((state) => state.userSubjectEnrolledin);
+  // const teachers = useUserStore((state) => state.userTeacherEnrolledin);
   
   return (
     <div className="  text-fontColor space-y-6 p-8 pt-4 text-[0.8rem] h-full overflow-auto pb-7">
@@ -76,7 +81,7 @@ export default function Account() {
           )}
           {subjects
             ?.filter((sub) =>
-              sub.subject.toLowerCase().includes(searchSubject.toLowerCase())
+              sub.subject?.toLowerCase().includes(searchSubject?.toLowerCase())
             )
             ?.map((subject, index) => {
               return (
@@ -112,7 +117,7 @@ export default function Account() {
             id="rr"
             type="text"
             className="font-normal p-2 rounded-md text-xs  bg-primaryColor pl-4 text-[0.7rem] h-full flex-1 mr-3"
-            placeholder="search subject name"
+            placeholder="search teacher name"
             onChange={(e) => {
               setsearchteachers(e.target.value);
             }}
@@ -130,11 +135,10 @@ export default function Account() {
           )}
           {teachers
             ?.filter((sub) =>
-              sub.teacher_name
-                .toLowerCase()
-                .includes(searchteachers.toLowerCase())
-            )
-            ?.map((teacher, index) => {
+              sub.name
+                ?.toLowerCase()
+                .includes(searchteachers?.toLowerCase())
+            ).map((teacher, index) => {
               return (
                 <Link
                   onClick={() => {
@@ -144,7 +148,7 @@ export default function Account() {
                   key={index}
                   className="flex justify-between hover:text-linkedColor"
                 >
-                  <p>{teacher.teacher_name}</p>
+                  <p>{teacher.name}</p>
 
                   <p className="text-linkedColor font-semibold  pl-3">
                     {

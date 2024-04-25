@@ -36,7 +36,7 @@ export default function Student({  students }) {
     }
   return (
     <div
-      className="border border-grayish hover:bg-grayish w-full  md:w-[48.4%] flex flex-col min-h-32 p-4  text-white"
+      className="border bg-primaryColor border-grayish/50 boxborderpost hover:bg-grayish w-full  md:w-[48.4%] flex flex-col min-h-32 p-4  text-fontColor"
       onClick={subjectset}
     >
       <div className="flex-1 ">
@@ -44,13 +44,13 @@ export default function Student({  students }) {
       </div>
       <div className="h-full flex justify-end flex-wrap items-end gap-2">
         <button
-          className="p-2 px-3 bg-linkedColor text-xs"
+          className="p-2 px-3 bg-linkedColor text-xs text-primaryColor"
           onClick={subjectset}
         >
           View Subjects
         </button>
         <Dialog>
-          <DialogTrigger className="p-2 px-3 bg-linkedColor text-xs">
+          <DialogTrigger className="p-2 px-3 bg-linkedColor text-xs text-primaryColor">
             View Information
           </DialogTrigger>
           <DialogContent>

@@ -21,7 +21,6 @@ export default function ForYouFeed() {
   console.log(ratings)
   return (
     <div className="w-[100%] pb-20 md:pb-0">
-      
       <div className="space-y-3 pt-3 ">
         {ratings.map((rating, index) => {
           return (
@@ -61,7 +60,7 @@ export default function ForYouFeed() {
       </div>
       <div className="w-full flex justify-center items-center h-10">
         <button
-          className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+          className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={() => setNumberToLoad(numberToLaod + 10)}
         >
           {numberToLaod <= lengthoforiginalraiting

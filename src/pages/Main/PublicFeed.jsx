@@ -60,7 +60,7 @@ export default function PublicFeed() {
       </div>
       <div className="w-full flex justify-center items-center h-10 ">
         <button
-          className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+          className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={() => setNumberToLoad(numberToLoad + 10)}
         >
           {numberToLoad <= lengthoforiginalrating

@@ -10,6 +10,10 @@ const initialState = {
   teachers: [],
   matriculation: [],
   all_matriculations:[],
+  publicEdpoint:[],
+
+
+
 
   admin_enrollments: [],
   admin_ratings: [],
@@ -40,6 +44,7 @@ const useDatabaseStore = create((set) => ({
   setMatriculation: (matriculation) => set({ matriculation }),
   setAllMatriculations: (all_matriculations) => set({ all_matriculations }),
   reset: () => set(initialState),
+  setPublicEdpoint: (publicEdpoint) => set({ publicEdpoint }),
 }));
 
 export default useDatabaseStore;

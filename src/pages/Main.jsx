@@ -41,17 +41,17 @@ export default function Main() {
   const toShow = useUserStore((state) => state.toShow);
   const setToShow = useUserStore((state) => state.setToShow);
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className="min-h-screen flex flex-col bg-bodyBackground   ">
       <div className=" px-5 sticky top-0  bg-primaryColor/70  md:hidden z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1rem] border-borderColor flex  items-center w-full  ">
         <div className="justify-items-end md:hidden items-center flex flex-1 justify-end  ">
           <a
-            className="text-white pr-3 hover:text-[#8287FE] justify-items-end"
+            className="text-fontColor pr-3 hover:text-[#8287FE] justify-items-end"
             onClick={() => {
               localStorage.removeItem("token");
             }}
             href="https://irate-teacher-react-phi.vercel.app/login"
           >
-            <LogOut color="white" />
+            <LogOut color="fontColor" />
           </a>
         </div>
       </div>
@@ -70,10 +70,10 @@ export default function Main() {
       <div className="fixed hidden lg:inline top-20 w-72 right-0 h-[calc(100vh-5rem)]    ">
         {user.role == "admin" && (
           <>
-            <div className="text-white text-xs flex  py-3 w-full sticky top-1 bg-primaryColor">
+            <div className="text-fontColor text-xs flex  py-3 w-full sticky top-1 ">
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow == "program" ? "text-linkedColor" : "text-white"
+                  toShow == "program" ? "text-linkedColor" : "text-fontColor"
                 }`}
                 onClick={() => setToShow("program")}
               >
@@ -81,7 +81,7 @@ export default function Main() {
               </button>
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow == "account" ? "text-linkedColor" : "text-white"
+                  toShow == "account" ? "text-linkedColor" : "text-fontColor"
                 }`}
                 onClick={() => setToShow("account")}
               >
@@ -89,7 +89,7 @@ export default function Main() {
               </button>
               <button
                 className={`flex-1 hover:text-linkedColor  ${
-                  toShow == "subject" ? "text-linkedColor" : "text-white"
+                  toShow == "subject" ? "text-linkedColor" : "text-fontColor"
                 }`}
                 onClick={() => setToShow("subject")}
               >

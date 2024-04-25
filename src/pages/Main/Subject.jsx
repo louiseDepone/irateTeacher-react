@@ -52,7 +52,7 @@ export default function Subject() {
         <input
           type="text"
           placeholder="Search name and comments"
-          className="w-full bg-primaryColor border rounded-md text-white px-6  border-borderColor py-2"
+          className="w-full bg-primaryColor border rounded-md text-fontColor px-6  border-borderColor py-2"
           onChange={(e) => {
             setseratch(e.target.value);
           }}
@@ -71,7 +71,7 @@ export default function Subject() {
           onClick={() => {
             setUserChosenSubject(null);
           }}
-          className={`text-white text-xs ${
+          className={`text-fontColor text-xs ${
             userChosenSubject === null
               ? " bg-linkedColor  -order-1"
               : "bg-secondaryColor"
@@ -86,7 +86,7 @@ export default function Subject() {
               onClick={() => {
                 setUserChosenSubject(e.subject_id);
               }}
-              className={`text-white text-xs ${
+              className={`text-fontColor text-xs ${
                 userChosenSubject === e.subject_id
                   ? " bg-linkedColor  -order-1 "
                   : "bg-secondaryColor"
@@ -136,7 +136,7 @@ export default function Subject() {
       </div>
       <div className="w-full flex justify-center items-center h-10">
         <button
-          className="text-white w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
+          className="text-fontColor w-full  text-center hover:bg-grayish flex justify-center items-center cursor-cell  h-10"
           onClick={handleLoadMore}
           disabled={numberToLoad >= lengthOfOriginalRatings}
         >

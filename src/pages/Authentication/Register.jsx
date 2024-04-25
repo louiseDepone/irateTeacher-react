@@ -87,7 +87,7 @@ export default function Register() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex justify-center flex-col items-center h-screen  w-fit"
         >
-          <div className="font-black  text-7xl text-white flex ">
+          <div className="font-black  text-7xl text-fontColor flex ">
             Ra <span className="text-[#8287FE] ">Te</span>
           </div>
 
@@ -98,11 +98,11 @@ export default function Register() {
               className=" w-full "
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-sm ">Email</FormLabel>
+                  <FormLabel className="text-fontColor text-sm ">Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter Email Address "
-                      className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-white"
+                      className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-fontColor"
                       {...field}
                     />
                   </FormControl>
@@ -116,13 +116,13 @@ export default function Register() {
               name="student_id"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-sm ">
+                  <FormLabel className="text-fontColor text-sm ">
                     ID Number
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter Student ID Number"
-                      className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-white"
+                      className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-fontColor"
                       {...field}
                       {...field}
                     />
@@ -138,11 +138,11 @@ export default function Register() {
             name="name"
             render={({ field }) => (
               <FormItem className="  w-full">
-                <FormLabel className="text-white text-sm  ">Name</FormLabel>
+                <FormLabel className="text-fontColor text-sm  ">Name</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Desired Anonymous Name"
-                    className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-white"
+                    className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-fontColor"
                     {...field}
                     {...field}
                   />
@@ -157,11 +157,11 @@ export default function Register() {
             name="password"
             render={({ field }) => (
               <FormItem className="  w-full">
-                <FormLabel className="text-white text-sm ">Password</FormLabel>
+                <FormLabel className="text-fontColor text-sm ">Password</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter Password"
-                    className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-white"
+                    className="bg-transparent focus-visible:border-[0.5px] border-[0.5px]  text-fontColor"
                     {...field}
                     {...field}
                   />
@@ -185,7 +185,7 @@ export default function Register() {
               value="terms"
               required
             />
-            <label htmlFor="terms" className="text-white">
+            <label htmlFor="terms" className="text-fontColor">
               {" "}
               I agree to the{" "}
               <a
@@ -199,11 +199,11 @@ export default function Register() {
           </div>
           <button
             disabled={message == "Registering"}
-            className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-white "
+            className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-fontColor "
           >
             {message}
           </button>
-          <sub className="w-full text-center text-white font-normal mt-3">
+          <sub className="w-full text-center text-fontColor font-normal mt-3">
             Already have an Account yet?{" "}
             <Link to={"/login"} className="text-[#8287FE]">
               {" "}
