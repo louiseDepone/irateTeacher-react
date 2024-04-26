@@ -55,8 +55,8 @@ export default function Student({  students }) {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
-              <DialogDescription>cv</DialogDescription>
+              <DialogTitle>Infomation</DialogTitle>
+              <DialogDescription>Nothing Here yet!</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>

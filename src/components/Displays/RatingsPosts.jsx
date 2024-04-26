@@ -48,28 +48,30 @@ export default function RatingsPosts({ post }) {
       </p>
       <div className="h-full flex justify-end flex-wrap items-end gap-2">
         <Dialog>
-          <DialogTrigger className="p-2 px-3 bg-[#8287FE] text-xs">
+          <DialogTrigger className="p-2 px-3 bg-[#8287FE] text-xs  text-primaryColor">
             View Post
           </DialogTrigger>
           <DialogContent className="p-10  ">
-            <DialogHeader >
-                <DialogTitle className="w-full">Are you absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  <div>Teacher: {post.teachername}</div>
-                  <div>Subject: {post.subjectname}</div>
+            <DialogHeader>
+              <DialogTitle className="w-full">
+                Are you absolutely sure?
+              </DialogTitle>
+              <DialogDescription>
+                <div>Teacher: {post.teachername}</div>
+                <div>Subject: {post.subjectname}</div>
 
-                  <div className=" pt-2 mt-2 border-t border-fontColor">
-                    Comment: {post.comment}
-                  </div>
-                </DialogDescription>
+                <div className=" pt-2 mt-2 border-t border-fontColor">
+                  Comment: {post.comment}
+                </div>
+              </DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
         <button
           className={
             post.approved == 1
-              ? "p-2 px-3 bg-red-500 text-xs"
-              : "p-2 px-3 bg-green-400 text-xs"
+              ? "p-2 px-3 bg-red-500 text-xs text-primaryColor"
+              : "p-2 px-3 bg-green-400 text-xs text-primaryColor"
           }
           onClick={() => {
             const ratings = async () => {
