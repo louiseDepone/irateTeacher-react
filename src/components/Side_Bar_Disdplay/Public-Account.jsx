@@ -25,6 +25,7 @@ import useUserStore from "@/hooks/store/useUserStore";
 import { Link } from "react-router-dom";
 import { useQueryTeachers } from "@/hooks/query/useQueryTeachers";
 import { useQuerySubjects } from "@/hooks/query/useQuerySubjects";
+import { set } from "react-hook-form";
 export default function PublicAccount() {
 
 
@@ -52,9 +53,10 @@ export default function PublicAccount() {
   // const subjects = useUserStore((state) => state.userSubjectEnrolledin);
   // const teachers = useUserStore((state) => state.userTeacherEnrolledin);
   
+  const setUserSearch = useUserStore((state) => state.setUserSearch);
   return (
     <div className="  text-fontColor space-y-6 p-8 pt-4 text-[0.8rem] h-full overflow-auto pb-7">
-      <p className="text-mutedColor text-[0.9rem] font-bold">ENROLLED IN</p>
+      <p className="text-mutedColor text-[0.9rem] font-bold">SUBJECTS AND TEACHERS</p>
 
       <div className="">
         <div className="font-semibold flex py-1 justify-between h-full items-center">
@@ -63,7 +65,7 @@ export default function PublicAccount() {
             id="gg"
             type="text"
             className="font-normal p-2 rounded-md text-xs  bg-primaryColor pl-4 text-[0.7rem] h-full flex-1 mr-3"
-            placeholder="search subject name"
+            placeholder="search subject  name"
             onChange={(e) => {
               setsearchSubject(e.target.value);
             }}
@@ -85,13 +87,14 @@ export default function PublicAccount() {
             )
             ?.map((subject, index) => {
               return (
-                <Link
+                <span
                   onClick={() => {
-                    setUserChosenSubject(subject.subject_id);
+                    // setUserChosenSubject(subject.subject_id);
+                    setUserSearch(subject.subject);
                   }}
                   to={`/main/subject`}
                   key={index}
-                  className={`flex justify-between hover:text-linkedColor  ${
+                  className={`flex justify-between hover:text-linkedColor cursor-pointer  ${
                     setUserChosenSubject == subject.subject_id
                       ? " text-linkedColor "
                       : ""
@@ -105,7 +108,7 @@ export default function PublicAccount() {
                       ).length
                     }
                   </p>
-                </Link>
+                </span>
               );
             })}
         </div>
@@ -135,18 +138,18 @@ export default function PublicAccount() {
           )}
           {teachers
             ?.filter((sub) =>
-              sub.name
-                ?.toLowerCase()
-                .includes(searchteachers?.toLowerCase())
-            ).map((teacher, index) => {
+              sub.name?.toLowerCase().includes(searchteachers?.toLowerCase())
+            )
+            .map((teacher, index) => {
               return (
-                <Link
+                <span
                   onClick={() => {
-                    setUserChosenTeacher(teacher.teacher_id);
+                    // setUserChosenTeacher(teacher.teacher_id);
+                    setUserSearch(teacher.name);
                   }}
                   to={`/main/teacher`}
                   key={index}
-                  className="flex justify-between hover:text-linkedColor"
+                  className="flex justify-between hover:text-linkedColor cursor-pointer"
                 >
                   <p>{teacher.name}</p>
 
@@ -157,7 +160,7 @@ export default function PublicAccount() {
                       ).length
                     }
                   </p>
-                </Link>
+                </span>
               );
             })}
         </div>

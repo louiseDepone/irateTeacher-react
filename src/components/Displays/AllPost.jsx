@@ -49,7 +49,6 @@ function AllPost({
   const userpinpost = useUserStore((state) => state.userpinpost);
   const user = useUserStore((state) => state.user);
   const { refetch: refetchpinpost } = useQueryPinPost();
- 
   return (
     <div
       className={`bg-primaryColor flex w-full p-5 rounded-lg border min-w-fit text-[0.7rem] border-borderColor/60  text-fontColor gap-3  h-fit text-xs boxborderpost  ${
@@ -335,7 +334,7 @@ function AllPost({
       </div>
       <span
         className={`text-nowrap flex-1 text-right ${
-          true == true ? "inline-block" : "hidden"
+          location != undefined  ? "inline-block" : "hidden"
         }`}
       >
         {userpinpost.map((id) => id.rating_id).includes(rating_id) == 0 ? (

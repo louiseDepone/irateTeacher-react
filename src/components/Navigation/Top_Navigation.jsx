@@ -37,7 +37,7 @@ export default function TopNavigation() {
     <div className=" px-5 sticky md:top-0 top-[calc(100vh-4rem)]  bg-primaryColor/85   z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1px] border-borderColor/50 flex justify-between items-center w-full lg:flex-nowrap overflow-auto boxborder">
       <div className=" justify-items-start pl-2  hidden lg:inline-block w-96 flex-1  ">
         <Link className="font-bold text-2xl text-fontColor flex ">
-          Ra <span className="text-[#8287FE]">Te</span>
+          Ra<span className="text-[#8287FE]">Te</span>
         </Link>
       </div>
       <div className="   flex gap-7 md:gap-20  w-full justify-between md:w-fit text-sm flex-nowrap items-center ">

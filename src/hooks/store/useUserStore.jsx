@@ -6,7 +6,8 @@ const initialState = {
   userpinpost: [],
   userChosenSubject: null,
   userChosenTeacher: null,
-  toShow:"account"
+  toShow:"account",
+  userSearch:""
 };
 const useUserStore = create((set) => ({
   ...initialState,
@@ -20,6 +21,7 @@ const useUserStore = create((set) => ({
   setUserChosenSubject: (userChosenSubject) => set({ userChosenSubject }),
   setUserChosenTeacher: (userChosenTeacher) => set({ userChosenTeacher }),
   setToShow: (toShow) => set({ toShow }),
+  setUserSearch: (userSearch) => set({ userSearch})
 }));
 
 export default useUserStore;

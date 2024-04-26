@@ -24,14 +24,14 @@ export default function Protection({children}) {
     }else if (error) {
       // localStorage.clear();
       // setUser(null);
-      console.log(error, 'erroruuuuuuuuuuuuuuuu')
+      // console.log(error, 'erroruuuuuuuuuuuuuuuu')
     // return navigate("../login", { replace: true });
      return <div className="text-white">Loading the protected gone... , {error}</div>;
   } else if(data.status == 201){
   
   
    setUser(data.data)
-   console.log(data, 'data')
+  //  console.log(data, 'data')
    if(!data.data.role.toLowerCase()){
     return <div className="text-white">Loading your roal...</div>;
    }

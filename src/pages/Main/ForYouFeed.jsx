@@ -18,7 +18,6 @@ export default function ForYouFeed() {
       .filter((rating) => rating.student_id == user?.id)
       .slice(0, numberToLaod)
   );
-  console.log(ratings)
   return (
     <div className="w-[100%] pb-20 md:pb-0">
       <div className="space-y-3 pt-3 ">

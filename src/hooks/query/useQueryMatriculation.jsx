@@ -23,7 +23,7 @@ export function useQueryMatriculation() {
           }
         );
         const data = await response;
-        console.log(data)
+        // console.log(data)
         setMatriculation(
           data?.data?.filter(
             (matris) => matris.deleted == 0 || matris.deleted == null
@@ -31,7 +31,6 @@ export function useQueryMatriculation() {
         );
         return data;
       } catch (error) {
-        console.error(error);
         // localStorage.clear();
                 // navigate(0, "/login", { replace: true });
 
