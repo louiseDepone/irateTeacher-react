@@ -120,7 +120,7 @@ export default function PublicFeed() {
             </button>
           </div>
         </div>
-        <div className="fixed  ml-[calc(65vw-3rem)] w-[calc(35vw-4rem)]">
+        <div className="fixed  ml-[calc(65vw-3rem)] w-[calc(35vw-4rem)] hidden lg:inline">
           <PublicAccount />
         </div>
       </div>
