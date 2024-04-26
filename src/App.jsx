@@ -61,6 +61,11 @@ export default function PublicFeed() {
                 setUserSearch(e.target.value);
               }}
             />
+            <button className="pl-2 text-sm text-linkedColor" onClick={() => {
+              setUserSearch("");
+            }}>
+            Show All
+            </button>
           </div>
 
           {publicEdpoint
