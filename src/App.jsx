@@ -36,7 +36,7 @@ export default function PublicFeed() {
   
   return (
     <div className="bg-bodyBackground">
-      <div className=" px-5 sticky md:top-0 top-[calc(100vh-4rem)]  bg-primaryColor/85   z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1px] border-borderColor/50 flex justify-between items-center w-full lg:flex-nowrap overflow-auto boxborder ">
+      <div className=" px-5 sticky top-0 bg-primaryColor/85   z-100 backdrop-blur-xl   h-16 md:h-20 border-b-[0.1px] border-borderColor/50 flex justify-between items-center w-full lg:flex-nowrap overflow-auto boxborder ">
         <Link className="font-black pl-5 text-2xl text-fontColor flex ">
           Ra<span className="text-[#8287FE]">Te</span>
         </Link>
@@ -46,7 +46,7 @@ export default function PublicFeed() {
         </div>
       </div>
       <div className="flex w-full gap-2 px-[4rem] pt-6">
-        <div className=" space-y-3 pb-20 md:pb-0 w-[calc(65vw-4rem)]">
+        <div className=" space-y-3 pb-20 md:pb-0 w-full lg:w-[calc(65vw-4rem)]">
           {/* <App /> */}
 
           <div className="font-semibold flex py-1 justify-between  items-center">
