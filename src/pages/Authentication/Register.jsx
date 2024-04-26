@@ -81,7 +81,7 @@ export default function Register() {
     register();
   }
   return (
-    <div className="flex w-screen h-screen justify-center items-center">
+    <div className="flex px-5 lg:w-screen h-screen  justify-center items-center">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -199,7 +199,7 @@ export default function Register() {
           </div>
           <button
             disabled={message == "Registering"}
-            className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-fontColor "
+            className="bg-[#8287FE] w-full  rounded-md py-2  mt-5  font-bold  text-primaryColor "
           >
             {message}
           </button>
