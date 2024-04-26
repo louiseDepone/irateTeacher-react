@@ -19,8 +19,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useLocation } from "react-router-dom";
+import { useQueryUser } from "@/hooks/query/useQueryUser";
 
 export default function Post() {
+  const {refetch:userrefetch} = useQueryUser()
     const user = useUserStore((state) => state.user);
   const userSubject = useDatabaseStore((state) =>
     state.enrollments.filter((enrolled) => enrolled.student_id == user.id)
@@ -110,6 +112,7 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
       className={` ${
         ["foryoufeed", "publicfeed"].includes(location) ? " flex " : " hidden "
       } justify-center flex-col items-center py-6`}
+      
     >
       <div className="bg-fontColor rounded-full w-12 h-12 object-cover flex items-center justify-center">
         <span className="text-primaryColor font-bold">
@@ -119,6 +122,137 @@ const userTeachers = dtateachers.filter((teacher, index) => trys.has(teacher.tea
       </div>
       <p className="pt-1 text-xs">{user?.id}</p>
       <p className="text-xl font-bold text-fontColor">{user.name}</p>
+      <div>
+        <Dialog>
+          <DialogTrigger className="p-1 rounded-full border border-borderColor px-5 text-xs hover:bg-linkedColor hover:text-primaryColor">
+            Edit Profile
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Account Information</DialogTitle>
+              <form action="#" className="py-3 space-y-2" onSubmit={(e) => {
+                e.preventDefault()
+
+                // confirm the password if not match
+                if(e.target[3].value !== e.target[4].value){
+                  alert("Passwords do not match")
+                  return
+                }
+                // the name, email ,password and ofmrim password must not be blank
+                if(e.target[0].value == "" || e.target[1].value == "" || e.target[2].value == "" || e.target[3].value == ""){
+                  alert("Please fill all fields")
+                  return
+                }
+
+                // if the password is less than 6 characters
+                if(e.target[3].value.length < 6){
+                  alert("Password must be at least 6 characters")
+                  return
+                }
+
+                // if the email is not valid
+                // if the name is not valid
+                if(e.target[0].value.length < 3){
+                  alert("Name must be at least 3 characters")
+                  return
+                }
+
+                const update = async () => {
+                  try {
+                    const response = await axios.put(
+                      `/students/${user.id.toString()}`,
+                      {
+                        name: e.target[0].value,
+                        email: e.target[2].value,
+                        password: e.target[3].value
+                      },
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization: `${localStorage.getItem("token")}`,
+                        },
+                      }
+                    )
+                      
+                    alert("Profile updated");
+                    userrefetch();
+                    refetch();
+                  } catch (error) {
+                    console.log(error)
+                    alert("sss")
+                    
+                  }
+                  
+                  
+                }
+                
+                update()
+              }}>
+                <div>
+                  <label htmlFor="name" className="text-xs">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="w-full"
+                    defaultValue={user.name}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="idNumber" className="text-xs">
+                    Student ID
+                  </label>{" "}
+                  <input
+                    type="text"
+                    placeholder="ID number"
+                    name="idNumber"
+                    value={user.id}
+                    className="w-full"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label htmlFor="Email" className="text-xs">
+                    Email
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="email"
+                    className="w-full"
+                    defaultValue={user.email}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="text-xs">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="password"
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="confirmPassword" className="text-xs">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="Password"
+                    placeholder="Confirm Password"
+                    className="w-full"
+                  />
+                </div>
+                <div className="flex justify-end">
+                  <button className="bg-[#8287FE] text-primaryColor text-xs px-4 py-2 rounded-lg">
+                    update
+                  </button>
+                </div>
+              </form>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+      </div>
       <p className="text-mutedColor text-[0.6rem] pt-4">
         Rate your teacher's performance based on your personal experience.
       </p>
@@ -336,13 +470,13 @@ boxborderpost bg-primaryColor w-full h-12 rounded-[20px] pl-7 text-[0.6rem] px-4
                   </DialogClose>
                   <button
                     disabled={
-                    ratings.teaching_methods === 0 ||
-                    ratings.communication === 0 ||
-                    ratings.supportiveness === 0 ||
-                    ratings.engagement === 0 ||
-                    ratings.organization === 0 ||
-                    ratings.attitude === 0 
-                  }
+                      ratings.teaching_methods === 0 ||
+                      ratings.communication === 0 ||
+                      ratings.supportiveness === 0 ||
+                      ratings.engagement === 0 ||
+                      ratings.organization === 0 ||
+                      ratings.attitude === 0
+                    }
                     className="bg-[#8287FE] rounded-lg px-4 py-1 float-right"
                   >
                     Post

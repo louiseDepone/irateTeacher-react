@@ -73,8 +73,8 @@ export default function Subject() {
           }}
           className={`text-fontColor text-xs ${
             userChosenSubject === null
-              ? " bg-linkedColor  -order-1"
-              : "bg-secondaryColor"
+              ? " bg-linkedColor text-primaryColor -order-1"
+              : "bg-primaryColor"
           }  hover:bg-linkedColor rounded-xl p-3 px-4 text-sm`}
         >
           All
@@ -86,10 +86,10 @@ export default function Subject() {
               onClick={() => {
                 setUserChosenSubject(e.subject_id);
               }}
-              className={`text-fontColor text-xs ${
+              className={`text-fontColor text-xs   ${
                 userChosenSubject === e.subject_id
-                  ? " bg-linkedColor  -order-1 "
-                  : "bg-secondaryColor"
+                  ? " bg-linkedColor text-primaryColor -order-1 "
+                  : "bg-primaryColor"
               }  hover:bg-linkedColor rounded-xl p-3 px-4 text-sm`}
             >
               {e.subject}

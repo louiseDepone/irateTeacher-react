@@ -32,7 +32,7 @@ export default function Protection({children}) {
   
    setUser(data.data)
   //  console.log(data, 'data')
-   if(!data.data.role.toLowerCase()){
+   if(!data.data.role?.toLowerCase()){
     return <div className="text-white">Loading your roal...</div>;
    }
   switch (location?.toLowerCase()) {
@@ -40,7 +40,7 @@ export default function Protection({children}) {
     case "teachersubject":
     case "postapproval":
     case "student":
-      if (data.data.role.toLowerCase() !== "admin")
+      if (data.data.role?.toLowerCase() !== "admin")
         return navigate("main/foryoufeed", { replace: true });
     case "foryoufeed":
     case "publicfeed":
