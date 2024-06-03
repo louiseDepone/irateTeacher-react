@@ -49,15 +49,15 @@ export default function Matriculation() {
   }
   return (
     <div className="pt-4 w-full space-y-5 text-fontColor relative h-1/2">
-      <div className="absolute w-full bg-bodyBackground rounded-lg h-full flex justify-center ">
+{/*       <div className="absolute w-full bg-bodyBackground rounded-lg h-full flex justify-center ">
         <div className="w-1/2 text-xs">
           Please submit your matriculation through email to
           louisedepone@gmail.com. Make sure that the student ID of your account
           is match to the matriculation to be submitted
         </div>
-      </div>
+      </div> */}
       <form className="space-y-4" onSubmit={submit}>
-        <div className=" flex items-center justify-center  "> */}
+        <div className=" flex items-center justify-center  "> 
 {/*            <FileUploader
             handleChange={handleChange}
             name="pdf_name_matriculation"
