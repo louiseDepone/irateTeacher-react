@@ -70,7 +70,7 @@ export default function Matriculation() {
           />  */}
            <input
             type="file"
-            disabled
+            
             name="pdf_name_matriculation"
             id="pdf_name_matriculation"
             className="w-full"
