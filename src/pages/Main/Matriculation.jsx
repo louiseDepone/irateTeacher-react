@@ -24,22 +24,25 @@ export default function Matriculation() {
 
     const form = e.target;
     const formData = new FormData(form);
+
+    consol.log(form)
+    console.log(formData)
     const postMatriculation = async () => {
-      try {
-        await axios.post(
-          `/ddddddddddddAddingmatriculation/${user.id}`,
-          formData,
-          {
-            headers: {
-              Authorization: `${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        console.log("done");
-        refetchMatruiclation()
-      } catch (error) {
-        console.error("Axios error:", error);
-      }
+      // try {
+      //   await axios.post(
+      //     `/ddddddddddddAddingmatriculation/${user.id}`,
+      //     formData,
+      //     {
+      //       headers: {
+      //         Authorization: `${localStorage.getItem("token")}`,
+      //       },
+      //     }
+      //   );
+      //   console.log("done");
+      //   refetchMatruiclation()
+      // } catch (error) {
+      //   console.error("Axios error:", error);
+      // }
     };
 
     // postMatriculation();
@@ -53,9 +56,9 @@ export default function Matriculation() {
           is match to the matriculation to be submitted
         </div>
       </div>
-      {/* <form className="space-y-4" onSubmit={submit}>
+      <form className="space-y-4" onSubmit={submit}>
         <div className=" flex items-center justify-center  "> */}
-          {/* <FileUploader
+           <FileUploader
             handleChange={handleChange}
             name="pdf_name_matriculation"
             id="pdf_name_matriculation"
@@ -64,17 +67,17 @@ export default function Matriculation() {
             label="drag and drop a file here or click to select file"
             types={fileTypes}
             required
-          /> */}
-          {/* <input
+          /> 
+           <input
             type="file"
             disabled
             name="pdf_name_matriculation"
             id="pdf_name_matriculation"
             className="w-full"
             required
-          ></input> */}
-        {/* </div> */}
-        {/* <div className="flex gap-2">
+          ></input> 
+         </div> 
+         <div className="flex gap-2">
           <input
             name="file_name"
             type="text"
@@ -87,9 +90,9 @@ export default function Matriculation() {
             Submit for Approval
           </button>
         </div>
-      </form> */}
+      </form> 
 
-      {/* <div>
+       <div>
         <p className="text-white">Matriculations</p>
         <div className="flex flex-wrap text-xs gap-20 md:gap-0 ">
           {matriculation.reverse().map((matriculation, index) => {
@@ -124,7 +127,7 @@ export default function Matriculation() {
             );
           })}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
