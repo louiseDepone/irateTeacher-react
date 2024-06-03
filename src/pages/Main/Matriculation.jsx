@@ -58,7 +58,7 @@ export default function Matriculation() {
       </div>
       <form className="space-y-4" onSubmit={submit}>
         <div className=" flex items-center justify-center  "> */}
-           <FileUploader
+{/*            <FileUploader
             handleChange={handleChange}
             name="pdf_name_matriculation"
             id="pdf_name_matriculation"
@@ -67,7 +67,7 @@ export default function Matriculation() {
             label="drag and drop a file here or click to select file"
             types={fileTypes}
             required
-          /> 
+          />  */}
            <input
             type="file"
             disabled
