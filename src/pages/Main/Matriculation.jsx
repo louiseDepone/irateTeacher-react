@@ -81,7 +81,7 @@ export default function Matriculation() {
           <input
             name="file_name"
             type="text"
-            disabled
+            
             className="h-full py-1 rounded-lg px-4 w-full text-black"
             placeholder="Enter unique file name for your attached file "
             required
