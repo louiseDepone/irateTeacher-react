@@ -25,7 +25,7 @@ export default function Matriculation() {
     const form = e.target;
     const formData = new FormData(form);
 
-    consol.log(form)
+    console.log(form)
     console.log(formData)
     const postMatriculation = async () => {
       // try {
